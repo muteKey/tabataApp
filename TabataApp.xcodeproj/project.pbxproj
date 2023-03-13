@@ -7,19 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C9EE99129BC99090020E4FD /* TabataAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE99029BC99090020E4FD /* TabataAppApp.swift */; };
-		8C9EE99329BC99090020E4FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE99229BC99090020E4FD /* ContentView.swift */; };
+		8C6AF15D29BF21030060EB20 /* TrainingLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */; };
+		8C8BEDCF29BE0FA600C4275A /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDCE29BE0FA600C4275A /* Training.swift */; };
+		8C8BEDD129BE141400C4275A /* SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD029BE141400C4275A /* SwiftUIHelpers.swift */; };
+		8C8BEDD329BE237D00C4275A /* AddTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD229BE237D00C4275A /* AddTraining.swift */; };
+		8C8BEDD529BE523A00C4275A /* TrainingsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD429BE523A00C4275A /* TrainingsListModel.swift */; };
+		8C8BEDD729BE528C00C4275A /* TrainingDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD629BE528C00C4275A /* TrainingDetailsModel.swift */; };
+		8C8ECB8B29BF362200A3EF7E /* TrainingLaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8ECB8A29BF362200A3EF7E /* TrainingLaunchModel.swift */; };
+		8C9EE99129BC99090020E4FD /* TabataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE99029BC99090020E4FD /* TabataApp.swift */; };
 		8C9EE99529BC990C0020E4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE99429BC990C0020E4FD /* Assets.xcassets */; };
 		8C9EE99929BC990C0020E4FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE99829BC990C0020E4FD /* Preview Assets.xcassets */; };
+		8C9EE9A229BC9B070020E4FD /* TrainingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE9A129BC9B070020E4FD /* TrainingsList.swift */; };
+		8C9EE9A429BC9BDB0020E4FD /* TrainingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE9A329BC9BDB0020E4FD /* TrainingDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLaunch.swift; sourceTree = "<group>"; };
+		8C8BEDCE29BE0FA600C4275A /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		8C8BEDD029BE141400C4275A /* SwiftUIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelpers.swift; sourceTree = "<group>"; };
+		8C8BEDD229BE237D00C4275A /* AddTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTraining.swift; sourceTree = "<group>"; };
+		8C8BEDD429BE523A00C4275A /* TrainingsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListModel.swift; sourceTree = "<group>"; };
+		8C8BEDD629BE528C00C4275A /* TrainingDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailsModel.swift; sourceTree = "<group>"; };
+		8C8ECB8A29BF362200A3EF7E /* TrainingLaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLaunchModel.swift; sourceTree = "<group>"; };
 		8C9EE98D29BC99090020E4FD /* TabataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C9EE99029BC99090020E4FD /* TabataAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataAppApp.swift; sourceTree = "<group>"; };
-		8C9EE99229BC99090020E4FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8C9EE99029BC99090020E4FD /* TabataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataApp.swift; sourceTree = "<group>"; };
 		8C9EE99429BC990C0020E4FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C9EE99629BC990C0020E4FD /* TabataApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TabataApp.entitlements; sourceTree = "<group>"; };
 		8C9EE99829BC990C0020E4FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8C9EE9A129BC9B070020E4FD /* TrainingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsList.swift; sourceTree = "<group>"; };
+		8C9EE9A329BC9BDB0020E4FD /* TrainingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +49,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C8BEDCC29BE0C9800C4275A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C9EE9A129BC9B070020E4FD /* TrainingsList.swift */,
+				8C9EE9A329BC9BDB0020E4FD /* TrainingDetails.swift */,
+				8C8BEDD229BE237D00C4275A /* AddTraining.swift */,
+				8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8C8BEDCD29BE0F8E00C4275A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C8BEDCE29BE0FA600C4275A /* Training.swift */,
+				8C8BEDD429BE523A00C4275A /* TrainingsListModel.swift */,
+				8C8BEDD629BE528C00C4275A /* TrainingDetailsModel.swift */,
+				8C8ECB8A29BF362200A3EF7E /* TrainingLaunchModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8C9EE98429BC99090020E4FD = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +90,13 @@
 		8C9EE98F29BC99090020E4FD /* TabataApp */ = {
 			isa = PBXGroup;
 			children = (
-				8C9EE99029BC99090020E4FD /* TabataAppApp.swift */,
-				8C9EE99229BC99090020E4FD /* ContentView.swift */,
+				8C8BEDCD29BE0F8E00C4275A /* Models */,
+				8C8BEDCC29BE0C9800C4275A /* Views */,
+				8C9EE99029BC99090020E4FD /* TabataApp.swift */,
 				8C9EE99429BC990C0020E4FD /* Assets.xcassets */,
 				8C9EE99629BC990C0020E4FD /* TabataApp.entitlements */,
 				8C9EE99729BC990C0020E4FD /* Preview Content */,
+				8C8BEDD029BE141400C4275A /* SwiftUIHelpers.swift */,
 			);
 			path = TabataApp;
 			sourceTree = "<group>";
@@ -139,8 +179,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9EE99329BC99090020E4FD /* ContentView.swift in Sources */,
-				8C9EE99129BC99090020E4FD /* TabataAppApp.swift in Sources */,
+				8C6AF15D29BF21030060EB20 /* TrainingLaunch.swift in Sources */,
+				8C8BEDD329BE237D00C4275A /* AddTraining.swift in Sources */,
+				8C9EE9A229BC9B070020E4FD /* TrainingsList.swift in Sources */,
+				8C8ECB8B29BF362200A3EF7E /* TrainingLaunchModel.swift in Sources */,
+				8C8BEDD129BE141400C4275A /* SwiftUIHelpers.swift in Sources */,
+				8C8BEDD529BE523A00C4275A /* TrainingsListModel.swift in Sources */,
+				8C8BEDD729BE528C00C4275A /* TrainingDetailsModel.swift in Sources */,
+				8C9EE9A429BC9BDB0020E4FD /* TrainingDetails.swift in Sources */,
+				8C9EE99129BC99090020E4FD /* TabataApp.swift in Sources */,
+				8C8BEDCF29BE0FA600C4275A /* Training.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,9 +325,9 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -315,9 +363,9 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;

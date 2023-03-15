@@ -22,3 +22,9 @@ extension Training {
         return totalBreak + lapDuration
     }
 }
+
+extension Training {
+    static var mock: Self {
+        return Training(title: "First Training", laps: [], breakBetweenLaps: 10)
+    }
+}

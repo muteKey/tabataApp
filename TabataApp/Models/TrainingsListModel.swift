@@ -3,11 +3,17 @@ import SwiftUI
 
 final class TrainingsListModel: ObservableObject {
     @Published var trainings: [Training]
+    @Published var destination: Destination?
     
-    init(trainings: [Training]) {
-        self.trainings = trainings
+    enum Destination {
+        case add(TrainingFormModel)
     }
-        
+            
+    init(trainings: [Training], destination: Destination? = nil) {
+        self.trainings = trainings
+        self.destination = destination
+    }
+    
     func addTraining(_ training: Training) {
         self.trainings.append(training)
     }
@@ -16,27 +22,20 @@ final class TrainingsListModel: ObservableObject {
         self.trainings.remove(atOffsets: indexSet)
     }
     
-    func bindingFor(_ trainingId: Training.ID) -> Binding<Training> {
-        return Binding {
-            self.trainings.first { $0.id == trainingId }!
-        } set: { newValue in
-            guard let index = self.trainings.firstIndex(where: { $0.id == trainingId }) else {
-                fatalError()
-            }
-            self.trainings[index] = newValue
-        }
+    func addTrainingTapped() {
+        self.destination = .add(TrainingFormModel(training: Training(title: "", laps: [], breakBetweenLaps: 0)))
     }
     
-    func training(for id: Training.ID) -> Training {
-        guard let index = self.trainings.firstIndex(where: { $0.id == id }) else { fatalError() }
-        return self.trainings[index]
+    func saveTapped(_ training: Training) {
+        addTraining(training)
+        self.destination = nil
     }
 }
 
 extension TrainingsListModel {
     static var mock: TrainingsListModel {
         TrainingsListModel(trainings: [
-            Training(title: "First Training", laps: [], breakBetweenLaps: 0)
+            .mock
         ])
     }
 }

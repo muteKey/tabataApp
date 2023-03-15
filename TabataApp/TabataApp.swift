@@ -11,14 +11,7 @@ import SwiftUI
 struct TabataApp: App {
     var body: some Scene {
         WindowGroup {
-            TrainingsList(model: .init(trainings: [
-                Training(title: "First Training",
-                         laps: [
-                            Training.Lap(breakDuration: 60, workDuration: 30),
-                            Training.Lap(breakDuration: 30, workDuration: 15)
-                         ],
-                         breakBetweenLaps: 10)
-            ]))
+            AppView(model: AppModel(path: []))
         }
     }
 }

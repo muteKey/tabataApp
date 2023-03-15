@@ -8,12 +8,11 @@
 import Foundation
 import SwiftUI
 
-class TrainingLaunchModel: ObservableObject {
+final class TrainingPhasesModel {
     private var phases: [Phase]
     private(set) var currentDuration: Int = 0
     private var currentIndex = 0
     let totalDuration: Int
-    private let training: Training
     
     private enum Phase {
         case breakBetweenLaps(Int)
@@ -23,7 +22,6 @@ class TrainingLaunchModel: ObservableObject {
     
     init(training: Training) {
         self.phases = []
-        self.training = training
         self.totalDuration = training.totalDuration
         
         for (index, lap) in training.laps.enumerated() {
@@ -32,12 +30,24 @@ class TrainingLaunchModel: ObservableObject {
             self.phases.append(.lapBreak(index, lap.breakDuration))
         }
             
-        self.setPhaseDuration()
+        setPhaseDuration()
     }
     
     func updatePhase() {
         currentIndex += 1
         setPhaseDuration()
+    }
+    
+    var color: Color {
+        guard self.phases.count > 0 else { return .black }
+        switch self.phases[self.currentIndex] {
+        case .breakBetweenLaps:
+            return .gray
+        case .lapWork:
+            return .red
+        case .lapBreak:
+            return .blue
+        }
     }
     
     var currentPhaseTitle: String {
@@ -48,7 +58,7 @@ class TrainingLaunchModel: ObservableObject {
         case let .lapWork(index, _):
             return "Lap \(index + 1): Working!"
         case let .lapBreak(index, _):
-            return "Lap \(index + 1): Let's have a rest!"
+            return "Lap \(index + 1): Break!"
         }
     }
     
@@ -63,4 +73,25 @@ class TrainingLaunchModel: ObservableObject {
             self.currentDuration = duration
         }
     }
+}
+
+final class TrainingLaunchModel: ObservableObject, Hashable {
+    static func == (lhs: TrainingLaunchModel, rhs: TrainingLaunchModel) -> Bool {
+        rhs === lhs
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self))
+    }
+    
+    let phasesModel: TrainingPhasesModel
+    var onStop: () -> Void = {}
+    var onFinish: () -> Void = {}
+    let training: Training
+    
+    init(training: Training) {
+        self.phasesModel = TrainingPhasesModel(training: training)
+        self.training = training
+    }
+    
 }

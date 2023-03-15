@@ -6,38 +6,46 @@
 //
 
 import SwiftUI
+import SwiftUINavigation
 
 struct TrainingsList: View {
     @ObservedObject var model: TrainingsListModel
-    @State private var isShowingAddDialog = false
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(self.model.trainings) { training in
-                    NavigationLink(value: training.id) {
-                        TrainingRowItem(training: training)
-                    }
-                }
-                .onDelete { indexset in
-                    withAnimation {
-                        self.model.removeTraining(at: indexset)
-                    }
+        List {
+            ForEach(self.model.trainings) { training in
+                NavigationLink(value: AppModel.Destination.detail(TrainingDetailModel(training: training))) {
+                    TrainingRowItem(training: training)
                 }
             }
-            .navigationTitle("My Trainings")
-            .navigationDestination(for: Training.ID.self) { trainingId in
-//                TrainingDetails(model: TrainingDetailModel(training: model.bindingFor(trainingId)))
-                TrainingLaunch(model: TrainingLaunchModel(training: self.model.training(for: trainingId)))
+            .onDelete { indexset in
+                withAnimation {
+                    self.model.removeTraining(at: indexset)
+                }
             }
-            .sheet(isPresented: self.$isShowingAddDialog) {
-                AddTraining(model: self.model, isPresented: self.$isShowingAddDialog)
-            }
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Button("Add Training") {
-                        self.isShowingAddDialog.toggle()
+        }
+        .navigationTitle("My Trainings")
+        .sheet(unwrapping: self.$model.destination,
+               case: /TrainingsListModel.Destination.add,
+               content: { $formModel in
+            NavigationStack {
+                TrainingForm(model: formModel)
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Save") {
+                            self.model.saveTapped(formModel.training)
+                        }
                     }
+                }
+                .navigationTitle("Add New Training")
+            }
+        })
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                Button {
+                    self.model.addTrainingTapped()
+                } label: {
+                    Label("Add Training", systemImage: "plus")
                 }
             }
         }
@@ -59,6 +67,9 @@ struct TrainingRowItem: View {
 
 struct TrainingsList_Previews: PreviewProvider {
     static var previews: some View {
-        TrainingsList(model: .mock)
+        NavigationStack {
+            TrainingsList(model: .mock)
+        }
+        
     }
 }

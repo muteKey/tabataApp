@@ -1,23 +1,38 @@
 import Foundation
 import SwiftUI
 
-final class TrainingDetailModel: ObservableObject {
-    var training: Binding<Training>
-    
-    enum Destination {
-        case launchTraining
+final class TrainingDetailModel: ObservableObject, Hashable {
+    static func == (lhs: TrainingDetailModel, rhs: TrainingDetailModel) -> Bool {
+        lhs === rhs
     }
     
-    init(training: Binding<Training>) {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self))
+    }
+    
+    @Published var training: Training
+    @Published var destination: Destination?
+    
+    enum Destination: Hashable {
+        case edit(TrainingFormModel)
+        case launch
+    }
+    
+    init(training: Training, destination: Destination? = nil) {
         self.training = training
+        self.destination = destination
     }
     
-    func addLap() {
-        let defaultLap = Training.Lap(breakDuration: 60, workDuration: 30)
-        self.training.wrappedValue.laps.append(defaultLap)
+    func editTapped() {
+        self.destination = .edit(TrainingFormModel(training: training))
     }
     
-    func removeLap(_ lap: Training.Lap) {
-        self.training.wrappedValue.laps.removeAll { $0.id == lap.id }
+    func cancelEditingTapped() {
+        self.destination = nil
+    }
+    
+    func saveTapped(_ training: Training) {
+        self.training = training
+        self.destination = nil
     }
 }

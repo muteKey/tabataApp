@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C19B00229BFA438002649AD /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19B00129BFA438002649AD /* CircularProgressView.swift */; };
+		8C19B00529BFBA5F002649AD /* gong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C19B00429BFBA5F002649AD /* gong.wav */; };
+		8C19B00829BFBAB2002649AD /* AVPlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19B00729BFBAB2002649AD /* AVPlayerExtension.swift */; };
+		8C29F82C29C0951E00DADDFF /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29F82B29C0951E00DADDFF /* AppView.swift */; };
+		8C29F82E29C0959500DADDFF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29F82D29C0959500DADDFF /* AppModel.swift */; };
+		8C5E9A8629C13A6E00B78C75 /* SwiftUINavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 8C5E9A8529C13A6E00B78C75 /* SwiftUINavigation */; };
+		8C5E9A8829C1BB4F00B78C75 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E9A8729C1BB4F00B78C75 /* TimerModel.swift */; };
 		8C6AF15D29BF21030060EB20 /* TrainingLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */; };
 		8C8BEDCF29BE0FA600C4275A /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDCE29BE0FA600C4275A /* Training.swift */; };
-		8C8BEDD129BE141400C4275A /* SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD029BE141400C4275A /* SwiftUIHelpers.swift */; };
-		8C8BEDD329BE237D00C4275A /* AddTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD229BE237D00C4275A /* AddTraining.swift */; };
+		8C8BEDD329BE237D00C4275A /* TrainingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD229BE237D00C4275A /* TrainingForm.swift */; };
 		8C8BEDD529BE523A00C4275A /* TrainingsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD429BE523A00C4275A /* TrainingsListModel.swift */; };
 		8C8BEDD729BE528C00C4275A /* TrainingDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD629BE528C00C4275A /* TrainingDetailsModel.swift */; };
+		8C8DE7BC29C0D3F100E15B58 /* TrainingFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8DE7BB29C0D3F100E15B58 /* TrainingFormModel.swift */; };
 		8C8ECB8B29BF362200A3EF7E /* TrainingLaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8ECB8A29BF362200A3EF7E /* TrainingLaunchModel.swift */; };
 		8C9EE99129BC99090020E4FD /* TabataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE99029BC99090020E4FD /* TabataApp.swift */; };
 		8C9EE99529BC990C0020E4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE99429BC990C0020E4FD /* Assets.xcassets */; };
@@ -22,12 +29,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C19B00129BFA438002649AD /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		8C19B00429BFBA5F002649AD /* gong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gong.wav; sourceTree = "<group>"; };
+		8C19B00729BFBAB2002649AD /* AVPlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerExtension.swift; sourceTree = "<group>"; };
+		8C29F82B29C0951E00DADDFF /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		8C29F82D29C0959500DADDFF /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		8C5E9A8729C1BB4F00B78C75 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLaunch.swift; sourceTree = "<group>"; };
 		8C8BEDCE29BE0FA600C4275A /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
-		8C8BEDD029BE141400C4275A /* SwiftUIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelpers.swift; sourceTree = "<group>"; };
-		8C8BEDD229BE237D00C4275A /* AddTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTraining.swift; sourceTree = "<group>"; };
+		8C8BEDD229BE237D00C4275A /* TrainingForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingForm.swift; sourceTree = "<group>"; };
 		8C8BEDD429BE523A00C4275A /* TrainingsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListModel.swift; sourceTree = "<group>"; };
 		8C8BEDD629BE528C00C4275A /* TrainingDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailsModel.swift; sourceTree = "<group>"; };
+		8C8DE7BB29C0D3F100E15B58 /* TrainingFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingFormModel.swift; sourceTree = "<group>"; };
 		8C8ECB8A29BF362200A3EF7E /* TrainingLaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLaunchModel.swift; sourceTree = "<group>"; };
 		8C9EE98D29BC99090020E4FD /* TabataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9EE99029BC99090020E4FD /* TabataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataApp.swift; sourceTree = "<group>"; };
@@ -43,19 +56,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5E9A8629C13A6E00B78C75 /* SwiftUINavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C19B00329BFBA49002649AD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				8C19B00429BFBA5F002649AD /* gong.wav */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		8C19B00629BFBA93002649AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8C19B00729BFBAB2002649AD /* AVPlayerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8C8BEDCC29BE0C9800C4275A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				8C9EE9A129BC9B070020E4FD /* TrainingsList.swift */,
 				8C9EE9A329BC9BDB0020E4FD /* TrainingDetails.swift */,
-				8C8BEDD229BE237D00C4275A /* AddTraining.swift */,
+				8C8BEDD229BE237D00C4275A /* TrainingForm.swift */,
 				8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */,
+				8C19B00129BFA438002649AD /* CircularProgressView.swift */,
+				8C29F82B29C0951E00DADDFF /* AppView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -67,6 +99,9 @@
 				8C8BEDD429BE523A00C4275A /* TrainingsListModel.swift */,
 				8C8BEDD629BE528C00C4275A /* TrainingDetailsModel.swift */,
 				8C8ECB8A29BF362200A3EF7E /* TrainingLaunchModel.swift */,
+				8C29F82D29C0959500DADDFF /* AppModel.swift */,
+				8C8DE7BB29C0D3F100E15B58 /* TrainingFormModel.swift */,
+				8C5E9A8729C1BB4F00B78C75 /* TimerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -90,13 +125,14 @@
 		8C9EE98F29BC99090020E4FD /* TabataApp */ = {
 			isa = PBXGroup;
 			children = (
+				8C19B00629BFBA93002649AD /* Extensions */,
+				8C19B00329BFBA49002649AD /* Resource */,
 				8C8BEDCD29BE0F8E00C4275A /* Models */,
 				8C8BEDCC29BE0C9800C4275A /* Views */,
 				8C9EE99029BC99090020E4FD /* TabataApp.swift */,
 				8C9EE99429BC990C0020E4FD /* Assets.xcassets */,
 				8C9EE99629BC990C0020E4FD /* TabataApp.entitlements */,
 				8C9EE99729BC990C0020E4FD /* Preview Content */,
-				8C8BEDD029BE141400C4275A /* SwiftUIHelpers.swift */,
 			);
 			path = TabataApp;
 			sourceTree = "<group>";
@@ -125,6 +161,9 @@
 			dependencies = (
 			);
 			name = TabataApp;
+			packageProductDependencies = (
+				8C5E9A8529C13A6E00B78C75 /* SwiftUINavigation */,
+			);
 			productName = TabataApp;
 			productReference = 8C9EE98D29BC99090020E4FD /* TabataApp.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +192,9 @@
 				Base,
 			);
 			mainGroup = 8C9EE98429BC99090020E4FD;
+			packageReferences = (
+				8C5E9A8429C13A6E00B78C75 /* XCRemoteSwiftPackageReference "swiftui-navigation" */,
+			);
 			productRefGroup = 8C9EE98E29BC99090020E4FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -167,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C19B00529BFBA5F002649AD /* gong.wav in Resources */,
 				8C9EE99929BC990C0020E4FD /* Preview Assets.xcassets in Resources */,
 				8C9EE99529BC990C0020E4FD /* Assets.xcassets in Resources */,
 			);
@@ -180,15 +223,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6AF15D29BF21030060EB20 /* TrainingLaunch.swift in Sources */,
-				8C8BEDD329BE237D00C4275A /* AddTraining.swift in Sources */,
+				8C8BEDD329BE237D00C4275A /* TrainingForm.swift in Sources */,
 				8C9EE9A229BC9B070020E4FD /* TrainingsList.swift in Sources */,
 				8C8ECB8B29BF362200A3EF7E /* TrainingLaunchModel.swift in Sources */,
-				8C8BEDD129BE141400C4275A /* SwiftUIHelpers.swift in Sources */,
 				8C8BEDD529BE523A00C4275A /* TrainingsListModel.swift in Sources */,
 				8C8BEDD729BE528C00C4275A /* TrainingDetailsModel.swift in Sources */,
 				8C9EE9A429BC9BDB0020E4FD /* TrainingDetails.swift in Sources */,
+				8C8DE7BC29C0D3F100E15B58 /* TrainingFormModel.swift in Sources */,
+				8C29F82E29C0959500DADDFF /* AppModel.swift in Sources */,
 				8C9EE99129BC99090020E4FD /* TabataApp.swift in Sources */,
+				8C29F82C29C0951E00DADDFF /* AppView.swift in Sources */,
+				8C19B00829BFBAB2002649AD /* AVPlayerExtension.swift in Sources */,
+				8C5E9A8829C1BB4F00B78C75 /* TimerModel.swift in Sources */,
 				8C8BEDCF29BE0FA600C4275A /* Training.swift in Sources */,
+				8C19B00229BFA438002649AD /* CircularProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +450,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C5E9A8429C13A6E00B78C75 /* XCRemoteSwiftPackageReference "swiftui-navigation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swiftui-navigation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C5E9A8529C13A6E00B78C75 /* SwiftUINavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C5E9A8429C13A6E00B78C75 /* XCRemoteSwiftPackageReference "swiftui-navigation" */;
+			productName = SwiftUINavigation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8C9EE98529BC99090020E4FD /* Project object */;
 }

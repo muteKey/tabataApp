@@ -11,26 +11,31 @@ import SwiftUI
 final class TrainingPhasesModel {
     private var phases: [Phase]
     private(set) var currentDuration: Int = 0
-    private var currentIndex = 0
+    private var currentIndex = -1 {
+        didSet {
+            print(self.phases[currentIndex])
+        }
+    }
     let totalDuration: Int
     
     private enum Phase {
         case breakBetweenLaps(Int)
-        case lapWork(Int, Int)
-        case lapBreak(Int, Int)
+        case lapWork(lapNumber: Int, duration: Int, title: String)
+        case lapBreak(lapNumber: Int, duration: Int)
     }
     
     init(training: Training) {
         self.phases = []
         self.totalDuration = training.totalDuration
         
-        for (index, lap) in training.laps.enumerated() {
+        for i in 0..<training.laps.count {
             self.phases.append(.breakBetweenLaps(training.breakBetweenLaps))
-            self.phases.append(.lapWork(index, lap.workDuration))
-            self.phases.append(.lapBreak(index, lap.breakDuration))
-        }
-            
-        setPhaseDuration()
+            for j in 0..<training.laps[i].phases.count {
+                self.phases.append(.lapWork(lapNumber: i + 1, duration: training.laps[i].phases[j].workDuration, title: training.laps[i].phases[j].title))
+                self.phases.append(.lapBreak(lapNumber: i + 1, duration: training.laps[i].phases[j].breakDuration))
+            }
+        }            
+        updatePhase()
     }
     
     func updatePhase() {
@@ -55,10 +60,10 @@ final class TrainingPhasesModel {
         switch self.phases[self.currentIndex] {
         case .breakBetweenLaps:
             return "Break Between Laps"
-        case let .lapWork(index, _):
-            return "Lap \(index + 1): Working!"
+        case let .lapWork(index, _, title):
+            return "Lap \(index): \(title)"
         case let .lapBreak(index, _):
-            return "Lap \(index + 1): Break!"
+            return "Lap \(index): Break!"
         }
     }
     
@@ -67,7 +72,7 @@ final class TrainingPhasesModel {
         switch self.phases[self.currentIndex] {
         case let .breakBetweenLaps(duration):
             self.currentDuration = duration
-        case let .lapWork(_, duration):
+        case let .lapWork(_, duration, _):
             self.currentDuration = duration
         case let .lapBreak(_, duration):
             self.currentDuration = duration

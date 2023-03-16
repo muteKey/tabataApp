@@ -13,14 +13,7 @@ struct AppView: View {
     
     var body: some View {
         NavigationStack(path: self.$model.path) {
-            TrainingsList(model: .init(trainings: [
-                Training(title: "First Training",
-                         laps: [
-                            Training.Lap(breakDuration: 60, workDuration: 30),
-                            Training.Lap(breakDuration: 30, workDuration: 15)
-                         ],
-                         breakBetweenLaps: 10)
-            ]))
+            TrainingsList(model: self.model.trainingsList)
             .navigationDestination(for: AppModel.Destination.self) { route in
                 switch route {
                 case let .launch(model):
@@ -35,6 +28,6 @@ struct AppView: View {
 
 struct AppView_Previews: PreviewProvider {
     static var previews: some View {
-        AppView(model: AppModel(path: []))
+        AppView(model: AppModel(path: [], trainingsList: TrainingsListModel()))
     }
 }

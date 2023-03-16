@@ -36,39 +36,38 @@ struct TrainingLaunch: View {
             Text("Total training progress")
             ProgressView(value: Double(self.totalTimeRemaining), total: Double(self.model.phasesModel.totalDuration))
             HStack(alignment: .center) {
-                Button {
-                    model.onStop()
-                    timerModel.stopTimer()
-                } label: {
-                    Label("Stop", systemImage: "stop.fill")
-                }
-                
-                Spacer()
-                if timerModel.state == .running {
-                    Button {
-                        self.timerModel.pauseTimer()
-                    } label: {
-                        Label("Pause", systemImage: "pause.fill")
-                    }
-                } else if timerModel.state == .paused {
-                    Button {
-                        self.timerModel.resumeTimer()
-                    } label: {
-                        Label("Resume", systemImage: "play.fill")
-                    }
-                }
             }
             .padding()
-            Spacer()
             ZStack {
                 CircularProgressView(progress: self.phaseProgress, tintColor: self.model.phasesModel.color)
-                    .frame(width: 250, height: 250)
                     .padding()
-                Text(self.model.phasesModel.currentPhaseTitle)
-                    .font(.headline)
-                    .padding(30)
+                VStack {
+                    Text(self.model.phasesModel.currentPhaseTitle)
+                        .font(.headline)
+                        .padding(30)
+                    if timerModel.state == .running {
+                        Button {
+                            self.timerModel.pauseTimer()
+                        } label: {
+                            Label("Pause", systemImage: "pause.fill")
+                        }
+                    } else if timerModel.state == .paused {
+                        Button {
+                            self.timerModel.resumeTimer()
+                        } label: {
+                            Label("Resume", systemImage: "play.fill")
+                        }
+                    }
+                }
             }
             Spacer()
+            Button {
+                model.onStop()
+                timerModel.stopTimer()
+            } label: {
+                Label("Stop", systemImage: "stop.fill")
+            }
+
             HStack {
                 VStack(alignment: .leading) {
                     Text("Time Left:")
@@ -96,13 +95,12 @@ struct TrainingLaunch: View {
             
             if phaseTimeRemaining > 0 {
                 phaseTimeRemaining -= 1
+                totalTimeRemaining += 1
             } else {
                 self.model.phasesModel.updatePhase()
 //                playSound()
                 phaseTimeRemaining = self.model.phasesModel.currentDuration
             }
-            
-            self.totalTimeRemaining += 1
         }
         .alert("Training Finished", isPresented: $isTrainingFinished) {
             Button("OK", role: .cancel) {
@@ -122,8 +120,17 @@ struct TrainingLaunch_Previews: PreviewProvider {
         TrainingLaunch(model: TrainingLaunchModel(training:
                                                     Training(title: "First Training",
                                                              laps: [
-                                                                Training.Lap(breakDuration: 30, workDuration: 15)
+                                                                Training.Lap(phases: [
+                                                                    Training.Phase(breakDuration: 5, workDuration: 60, title: "Section 0"),
+                                                                    Training.Phase(breakDuration: 5, workDuration: 60, title: "Section 0")
+                                                                ]),
+                                                                
+                                                                Training.Lap(phases: [
+                                                                    Training.Phase(breakDuration: 5, workDuration: 60, title: "Section 1"),
+                                                                    Training.Phase(breakDuration: 5, workDuration: 60, title: "Section 1")
+                                                                ])
+
                                                              ],
-                                                                     breakBetweenLaps: 10)))
+                                                                     breakBetweenLaps: 60)))
     }
 }

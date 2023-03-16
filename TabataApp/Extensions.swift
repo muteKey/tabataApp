@@ -1,4 +1,5 @@
 import AVFoundation
+import SwiftUI
 
 extension AVPlayer {
     static let sharedDingPlayer: AVPlayer = {
@@ -7,3 +8,9 @@ extension AVPlayer {
     }()
 }
 
+extension View {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
+}

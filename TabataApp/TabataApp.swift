@@ -11,7 +11,7 @@ import SwiftUI
 struct TabataApp: App {
     var body: some Scene {
         WindowGroup {
-            AppView(model: AppModel(path: []))
+            AppView(model: AppModel(path: [], trainingsList: TrainingsListModel()))
         }
     }
 }

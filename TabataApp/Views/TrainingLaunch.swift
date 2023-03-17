@@ -35,8 +35,7 @@ struct TrainingLaunch: View {
         VStack {
             Text("Total training progress")
             ProgressView(value: Double(self.totalTimeRemaining), total: Double(self.model.phasesModel.totalDuration))
-            HStack(alignment: .center) {
-            }
+                .tint(.black)
             .padding()
             ZStack {
                 CircularProgressView(progress: self.phaseProgress, tintColor: self.model.phasesModel.color)
@@ -49,24 +48,40 @@ struct TrainingLaunch: View {
                         Button {
                             self.timerModel.pauseTimer()
                         } label: {
-                            Label("Pause", systemImage: "pause.fill")
+                            Image(systemName: "pause.fill")
+                                .resizable()
+                                .frame(width: 80, height:80)
                         }
+                        .buttonStyle(.plain)
+                        .tint(.black)
                     } else if timerModel.state == .paused {
                         Button {
                             self.timerModel.resumeTimer()
                         } label: {
-                            Label("Resume", systemImage: "play.fill")
+                            Image(systemName: "play.fill")
+                                .resizable()
+                                .frame(width: 80, height:80)
+
                         }
+                        .buttonStyle(.plain)
+                        .tint(.black)
                     }
                 }
             }
             Spacer()
             Button {
-                model.onStop()
-                timerModel.stopTimer()
+                self.timerModel.pauseTimer()
+                self.totalTimeRemaining += self.phaseTimeRemaining
+                self.model.phasesModel.updatePhase()
+                phaseTimeRemaining = self.model.phasesModel.currentDuration
+                self.timerModel.resumeTimer()
             } label: {
-                Label("Stop", systemImage: "stop.fill")
+                Label("Skip", systemImage: "forward.fill")
             }
+            .buttonStyle(.plain)
+            .tint(.black)
+
+            Spacer()
 
             HStack {
                 VStack(alignment: .leading) {
@@ -74,6 +89,15 @@ struct TrainingLaunch: View {
                         .font(.caption)
                     Label("\(formatDuration(self.phaseTimeRemaining))", systemImage: "hourglass.bottomhalf.fill")
                 }
+                Spacer()
+                Button {
+                    model.onStop()
+                    timerModel.stopTimer()
+                } label: {
+                    Label("Stop", systemImage: "stop.fill")
+                }
+                .buttonStyle(.plain)
+                .tint(.black)
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text("Phase Duration:")
@@ -98,7 +122,7 @@ struct TrainingLaunch: View {
                 totalTimeRemaining += 1
             } else {
                 self.model.phasesModel.updatePhase()
-//                playSound()
+                playSound()
                 phaseTimeRemaining = self.model.phasesModel.currentDuration
             }
         }

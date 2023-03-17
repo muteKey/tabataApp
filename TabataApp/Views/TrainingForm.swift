@@ -63,29 +63,6 @@ struct TrainingForm: View {
     }
 }
 
-struct PhaseView: View {
-    let lap: Training.Lap
-    var phase: Binding<Training.Phase>
-    
-    var body: some View {
-        VStack {
-            HStack {
-                TextField("Phase Title", text: phase.title)
-                    .autocorrectionDisabled(true)
-                    .keyboardType(.alphabet)
-                    
-                Button(role: .destructive) {
-//                    self.model.removePhase(phase.wrappedValue, from: lap)
-                } label: {
-                    Image(systemName: "minus.circle.fill")
-                }
-            }
-            Stepper("Work Duration \(formatDuration(phase.wrappedValue.workDuration))", value: phase.workDuration)
-            Stepper("Break Duration \(formatDuration(phase.wrappedValue.breakDuration))", value: phase.breakDuration)
-        }
-    }
-}
-
 struct TrainingForm_Previews: PreviewProvider {
     static var previews: some View {
         TrainingForm(model: TrainingFormModel(training: .mock))

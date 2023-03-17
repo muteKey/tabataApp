@@ -36,7 +36,7 @@ struct TrainingDetails: View {
                 TrainingForm(model: formModel)
                     .navigationTitle("Edit Training")
                     .toolbar {
-                        ToolbarItem(placement: .bottomBar) {
+                        ToolbarItem(placement: .confirmationAction) {
                             Button("Save") {
                                 self.model.saveTapped(formModel.training)
                             }

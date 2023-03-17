@@ -39,10 +39,11 @@ final class TrainingPhasesModel {
     }
     
     func updatePhase() {
+        guard currentIndex < self.phases.count - 1 else { return }
         currentIndex += 1
         setPhaseDuration()
     }
-    
+        
     var color: Color {
         guard self.phases.count > 0 else { return .black }
         switch self.phases[self.currentIndex] {

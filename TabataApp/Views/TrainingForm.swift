@@ -13,11 +13,11 @@ struct TrainingForm: View {
     var body: some View {
         VStack {
             List {
-                TextField("Training Name", text: self.$model.training.title)
+                TextField(L10n.trainingName, text: self.$model.training.title)
                     .autocorrectionDisabled(true)
                     .keyboardType(.alphabet)
 
-                Stepper("Break Between Laps \(formatDuration(self.model.training.breakBetweenLaps))", value: self.$model.training.breakBetweenLaps)
+                Stepper("\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))", value: self.$model.training.breakBetweenLaps)
                 
                 ForEach(self.$model.training.laps) { $lap in
                     if lap.phases.count > 0 {
@@ -25,7 +25,7 @@ struct TrainingForm: View {
                             ForEach($lap.phases) { phase in
                                 VStack {
                                     HStack {
-                                        TextField("Phase Title", text: phase.title)
+                                        TextField(L10n.phaseTitle, text: phase.title)
                                             .autocorrectionDisabled(true)
                                             .keyboardType(.alphabet)
                                         
@@ -36,8 +36,8 @@ struct TrainingForm: View {
                                             Image(systemName: "minus.circle.fill")
                                         }
                                     }
-                                    Stepper("Work Duration \(formatDuration(phase.wrappedValue.workDuration))", value: phase.workDuration)
-                                    Stepper("Break Duration \(formatDuration(phase.wrappedValue.breakDuration))", value: phase.breakDuration)
+                                    Stepper("\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))", value: phase.workDuration)
+                                    Stepper("\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))", value: phase.breakDuration)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -47,7 +47,7 @@ struct TrainingForm: View {
                             Button {
                                 self.model.addPhase(for: lap)
                             } label: {
-                                Text("Add Phase")
+                                Text(L10n.addPhase)
                             }
                         }
                     }
@@ -57,7 +57,7 @@ struct TrainingForm: View {
             Button {
                 self.model.addLap()
             } label: {
-                Label("Add Lap", systemImage: "plus.app.fill")
+                Label(L10n.addLap, systemImage: "plus.app.fill")
             }
         }
     }

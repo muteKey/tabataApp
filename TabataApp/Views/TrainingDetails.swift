@@ -12,12 +12,12 @@ struct TrainingDetails: View {
     var body: some View {
         VStack {
             List {
-                Label("Total duration: \(formatDuration(model.training.totalDuration))", systemImage: "clock.circle")
-                Label("Number of laps: \(model.training.laps.count)", systemImage: "figure.run")
-                Label("Break between laps: \(formatDuration(model.training.breakBetweenLaps))", systemImage: "bed.double")
+                Label("\(L10n.totalDuration): \(formatDuration(model.training.totalDuration))", systemImage: "clock.circle")
+                Label("\(L10n.numberOfLaps): \(model.training.laps.count)", systemImage: "figure.run")
+                Label("\(L10n.breakBetweenLaps): \(formatDuration(model.training.breakBetweenLaps))", systemImage: "bed.double")
             }
             NavigationLink(value: AppModel.Destination.launch(TrainingLaunchModel(training: model.training))) {
-                Label("Launch", systemImage: "play.fill")
+                Label(L10n.launch, systemImage: "play.fill")
             }
         }
         .navigationTitle(model.training.title)
@@ -26,7 +26,7 @@ struct TrainingDetails: View {
                 Button {
                     self.model.editTapped()
                 } label: {
-                    Label("Edit", systemImage: "pencil")
+                    Label(L10n.editTraining, systemImage: "pencil")
                 }
             }
         }
@@ -34,15 +34,15 @@ struct TrainingDetails: View {
                case: /TrainingDetailModel.Destination.edit) { $formModel in
             NavigationStack {
                 TrainingForm(model: formModel)
-                    .navigationTitle("Edit Training")
+                    .navigationTitle(L10n.editTraining)
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {
-                            Button("Save") {
+                            Button(L10n.save) {
                                 self.model.saveTapped(formModel.training)
                             }
                         }
                         ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
+                            Button(L10n.cancel) {
                                 self.model.cancelEditingTapped()
                             }
                         }

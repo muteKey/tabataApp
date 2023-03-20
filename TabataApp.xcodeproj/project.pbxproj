@@ -14,6 +14,10 @@
 		8C29F82E29C0959500DADDFF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C29F82D29C0959500DADDFF /* AppModel.swift */; };
 		8C5E9A8629C13A6E00B78C75 /* SwiftUINavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 8C5E9A8529C13A6E00B78C75 /* SwiftUINavigation */; };
 		8C5E9A8829C1BB4F00B78C75 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E9A8729C1BB4F00B78C75 /* TimerModel.swift */; };
+		8C665A1629C86CB5008750AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C665A1829C86CB5008750AE /* Localizable.strings */; };
+		8C665A1C29C87956008750AE /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8C665A1B29C87956008750AE /* swiftgen.yml */; };
+		8C665A2629C88F80008750AE /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C665A2429C88F7F008750AE /* Assets.swift */; };
+		8C665A2729C88F80008750AE /* Strings-generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C665A2529C88F80008750AE /* Strings-generated.swift */; };
 		8C6AF15D29BF21030060EB20 /* TrainingLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */; };
 		8C86CFFC29C2196D008BA5EC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86CFFB29C2196D008BA5EC /* DataManager.swift */; };
 		8C8BEDCF29BE0FA600C4275A /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDCE29BE0FA600C4275A /* Training.swift */; };
@@ -36,6 +40,11 @@
 		8C29F82B29C0951E00DADDFF /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		8C29F82D29C0959500DADDFF /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		8C5E9A8729C1BB4F00B78C75 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		8C665A1729C86CB5008750AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8C665A1929C86CBE008750AE /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8C665A1B29C87956008750AE /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		8C665A2429C88F7F008750AE /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		8C665A2529C88F80008750AE /* Strings-generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings-generated.swift"; sourceTree = "<group>"; };
 		8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLaunch.swift; sourceTree = "<group>"; };
 		8C86CFFB29C2196D008BA5EC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8C8BEDCE29BE0FA600C4275A /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
@@ -111,6 +120,7 @@
 		8C9EE98429BC99090020E4FD = {
 			isa = PBXGroup;
 			children = (
+				8C665A1B29C87956008750AE /* swiftgen.yml */,
 				8C9EE98F29BC99090020E4FD /* TabataApp */,
 				8C9EE98E29BC99090020E4FD /* Products */,
 			);
@@ -127,6 +137,8 @@
 		8C9EE98F29BC99090020E4FD /* TabataApp */ = {
 			isa = PBXGroup;
 			children = (
+				8C665A2429C88F7F008750AE /* Assets.swift */,
+				8C665A2529C88F80008750AE /* Strings-generated.swift */,
 				8C86CFFA29C2195B008BA5EC /* Dependencies */,
 				8C19B00329BFBA49002649AD /* Resource */,
 				8C8BEDCD29BE0F8E00C4275A /* Models */,
@@ -136,6 +148,7 @@
 				8C9EE99429BC990C0020E4FD /* Assets.xcassets */,
 				8C9EE99629BC990C0020E4FD /* TabataApp.entitlements */,
 				8C9EE99729BC990C0020E4FD /* Preview Content */,
+				8C665A1829C86CB5008750AE /* Localizable.strings */,
 			);
 			path = TabataApp;
 			sourceTree = "<group>";
@@ -158,6 +171,7 @@
 				8C9EE98929BC99090020E4FD /* Sources */,
 				8C9EE98A29BC99090020E4FD /* Frameworks */,
 				8C9EE98B29BC99090020E4FD /* Resources */,
+				8C665A2129C87EE6008750AE /* Swiftgen */,
 			);
 			buildRules = (
 			);
@@ -193,6 +207,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = 8C9EE98429BC99090020E4FD;
 			packageReferences = (
@@ -213,12 +228,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C19B00529BFBA5F002649AD /* gong.wav in Resources */,
+				8C665A1C29C87956008750AE /* swiftgen.yml in Resources */,
+				8C665A1629C86CB5008750AE /* Localizable.strings in Resources */,
 				8C9EE99929BC990C0020E4FD /* Preview Assets.xcassets in Resources */,
 				8C9EE99529BC990C0020E4FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8C665A2129C87EE6008750AE /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "swiftgen strings --templateName structured-swift5 --output TabataApp/Strings-generated.swift TabataApp/en.lproj/Localizable.strings\nswiftgen xcassets --templateName swift5 --output TabataApp/Assets.swift TabataApp/Assets.xcassets\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8C9EE98929BC99090020E4FD /* Sources */ = {
@@ -231,9 +269,11 @@
 				8C9EE9A229BC9B070020E4FD /* TrainingsList.swift in Sources */,
 				8C8ECB8B29BF362200A3EF7E /* TrainingLaunchModel.swift in Sources */,
 				8C8BEDD529BE523A00C4275A /* TrainingsListModel.swift in Sources */,
+				8C665A2629C88F80008750AE /* Assets.swift in Sources */,
 				8C8BEDD729BE528C00C4275A /* TrainingDetailsModel.swift in Sources */,
 				8C9EE9A429BC9BDB0020E4FD /* TrainingDetails.swift in Sources */,
 				8C8DE7BC29C0D3F100E15B58 /* TrainingFormModel.swift in Sources */,
+				8C665A2729C88F80008750AE /* Strings-generated.swift in Sources */,
 				8C29F82E29C0959500DADDFF /* AppModel.swift in Sources */,
 				8C9EE99129BC99090020E4FD /* TabataApp.swift in Sources */,
 				8C29F82C29C0951E00DADDFF /* AppView.swift in Sources */,
@@ -245,6 +285,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8C665A1829C86CB5008750AE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C665A1729C86CB5008750AE /* en */,
+				8C665A1929C86CBE008750AE /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8C9EE99A29BC990C0020E4FD /* Debug */ = {
@@ -387,10 +439,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mutekey.TabataApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -425,10 +479,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mutekey.TabataApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

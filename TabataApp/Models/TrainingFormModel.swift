@@ -45,6 +45,6 @@ final class TrainingFormModel: ObservableObject, Hashable {
     
     func sectionTitle(for lap: Training.Lap) -> String {
         guard let index = training.laps.firstIndex(where: {$0.id == lap.id }) else { return "" }
-        return "Lap \(index + 1)"
+        return "\(L10n.lap) \(index + 1)"
     }
 }

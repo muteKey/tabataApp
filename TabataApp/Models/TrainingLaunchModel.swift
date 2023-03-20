@@ -60,11 +60,11 @@ final class TrainingPhasesModel {
         guard self.phases.count > 0 else { return "" }
         switch self.phases[self.currentIndex] {
         case .breakBetweenLaps:
-            return "Break Between Laps"
+            return L10n.breakBetweenLaps
         case let .lapWork(index, _, title):
-            return "Lap \(index): \(title)"
+            return "\(L10n.lap) \(index): \(title)"
         case let .lapBreak(index, _):
-            return "Lap \(index): Break!"
+            return "\(L10n.lap) \(index): \(L10n.break)!"
         }
     }
     

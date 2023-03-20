@@ -33,7 +33,7 @@ struct TrainingLaunch: View {
         
     var body: some View {
         VStack {
-            Text("Total training progress")
+            Text(L10n.totalTraining)
             ProgressView(value: Double(self.totalTimeRemaining), total: Double(self.model.phasesModel.totalDuration))
                 .tint(.black)
             .padding()
@@ -76,7 +76,7 @@ struct TrainingLaunch: View {
                 phaseTimeRemaining = self.model.phasesModel.currentDuration
                 self.timerModel.resumeTimer()
             } label: {
-                Label("Skip", systemImage: "forward.fill")
+                Label(L10n.skip, systemImage: "forward.fill")
             }
             .buttonStyle(.plain)
             .tint(.black)
@@ -85,7 +85,7 @@ struct TrainingLaunch: View {
 
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Time Left:")
+                    Text("\(L10n.timeLeft):")
                         .font(.caption)
                     Label("\(formatDuration(self.phaseTimeRemaining))", systemImage: "hourglass.bottomhalf.fill")
                 }
@@ -94,13 +94,13 @@ struct TrainingLaunch: View {
                     model.onStop()
                     timerModel.stopTimer()
                 } label: {
-                    Label("Stop", systemImage: "stop.fill")
+                    Label(L10n.stop, systemImage: "stop.fill")
                 }
                 .buttonStyle(.plain)
                 .tint(.black)
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("Phase Duration:")
+                    Text("\(L10n.phaseDuration):")
                         .font(.caption)
                     Label("\(formatDuration(self.model.phasesModel.currentDuration))", systemImage: "hourglass.tophalf.fill")
                 }
@@ -126,7 +126,7 @@ struct TrainingLaunch: View {
                 phaseTimeRemaining = self.model.phasesModel.currentDuration
             }
         }
-        .alert("Training Finished", isPresented: $isTrainingFinished) {
+        .alert(L10n.trainingFinished, isPresented: $isTrainingFinished) {
             Button("OK", role: .cancel) {
                 model.onFinish()
             }
@@ -136,6 +136,10 @@ struct TrainingLaunch: View {
     func playSound() {
         player.seek(to: .zero)
         player.play()
+    }
+    
+    func hapticFeedback() {
+        
     }
 }
 

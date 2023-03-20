@@ -24,7 +24,7 @@ struct TrainingsList: View {
                 }
             }
         }
-        .navigationTitle("My Trainings")
+        .navigationTitle(L10n.myTrainings)
         .sheet(unwrapping: self.$model.destination,
                case: /TrainingsListModel.Destination.add,
                content: { $formModel in
@@ -32,12 +32,12 @@ struct TrainingsList: View {
                 TrainingForm(model: formModel)
                 .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Save") {
+                        Button(L10n.save) {
                             self.model.saveTapped(formModel.training)
                         }
                     }
                 }
-                .navigationTitle("Add New Training")
+                .navigationTitle(L10n.addNewTraining)
             }
         })
         .toolbar {
@@ -45,7 +45,7 @@ struct TrainingsList: View {
                 Button {
                     self.model.addTrainingTapped()
                 } label: {
-                    Label("Add Training", systemImage: "plus")
+                    Label(L10n.addTraining, systemImage: "plus")
                 }
             }
         }
@@ -57,8 +57,8 @@ struct TrainingRowItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(self.training.title)
-            Text("Number of laps: \(self.training.laps.count)")
-            Text("Total duration: \(formatDuration(self.training.totalDuration))")
+            Text("\(L10n.numberOfLaps): \(self.training.laps.count)")
+            Text("\(L10n.totalDuration): \(formatDuration(self.training.totalDuration))")
         }
 
     }

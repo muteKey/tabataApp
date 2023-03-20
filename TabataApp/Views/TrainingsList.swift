@@ -29,14 +29,9 @@ struct TrainingsList: View {
                case: /TrainingsListModel.Destination.add,
                content: { $formModel in
             NavigationStack {
-                TrainingForm(model: formModel)
-                .toolbar {
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button(L10n.save) {
-                            self.model.saveTapped(formModel.training)
-                        }
-                    }
-                }
+                TrainingForm(model: formModel, onSave: { training in
+                    self.model.saveTapped(training)
+                })
                 .navigationTitle(L10n.addNewTraining)
             }
         })

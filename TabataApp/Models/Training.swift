@@ -1,5 +1,9 @@
 import Foundation
 
+protocol Validatable {
+    var isValid: Bool { get }
+}
+
 struct Training: Identifiable, Hashable, Codable {
     var id = UUID()
     var title: String
@@ -19,6 +23,36 @@ struct Training: Identifiable, Hashable, Codable {
     }
 }
 
+extension Training: Validatable {
+    var isValid: Bool {
+        return !title.isEmpty && laps.isValid && breakBetweenLaps > 0
+    }
+}
+
+extension Training.Lap: Validatable {
+    var isValid: Bool {
+        return phases.isValid
+    }
+}
+
+extension Training.Phase: Validatable {
+    var isValid: Bool {
+        return breakDuration > 0 && workDuration > 0 && !title.isEmpty
+    }
+}
+
+extension Array: Validatable where Element: Validatable {
+    var isValid: Bool {
+        if self.isEmpty {
+            return false
+        }
+        for el in self {
+            if !el.isValid { return false }
+        }
+        return true
+    }
+}
+
 extension Training {
     var totalDuration: Int {
         var total = 0
@@ -33,6 +67,7 @@ extension Training {
         return total
     }
 }
+
 
 extension Training {
     static var mock: Self {

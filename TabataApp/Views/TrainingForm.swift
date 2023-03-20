@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrainingForm: View {
     @ObservedObject var model: TrainingFormModel
-    
+    var onSave: (Training) -> Void
     var body: some View {
         VStack {
             List {
@@ -17,7 +17,7 @@ struct TrainingForm: View {
                     .autocorrectionDisabled(true)
                     .keyboardType(.alphabet)
 
-                Stepper("\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))", value: self.$model.training.breakBetweenLaps)
+                Stepper("\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))", value: self.$model.training.breakBetweenLaps, in: self.model.breakBetweenLapsRange)
                 
                 ForEach(self.$model.training.laps) { $lap in
                     if lap.phases.count > 0 {
@@ -28,6 +28,7 @@ struct TrainingForm: View {
                                         TextField(L10n.phaseTitle, text: phase.title)
                                             .autocorrectionDisabled(true)
                                             .keyboardType(.alphabet)
+                                            .submitLabel(.done)
                                         
                                         Button(role: .destructive) {
                                             hideKeyboard()
@@ -36,8 +37,8 @@ struct TrainingForm: View {
                                             Image(systemName: "minus.circle.fill")
                                         }
                                     }
-                                    Stepper("\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))", value: phase.workDuration)
-                                    Stepper("\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))", value: phase.breakDuration)
+                                    Stepper("\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))", value: phase.workDuration, in: self.model.workDurationRange)
+                                    Stepper("\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))", value: phase.breakDuration, in: self.model.breakDurationRange)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -60,11 +61,20 @@ struct TrainingForm: View {
                 Label(L10n.addLap, systemImage: "plus.app.fill")
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button(L10n.save) {
+                    self.onSave(model.training)
+                }
+                .disabled(!model.training.isValid)
+            }
+        }
+
     }
 }
 
 struct TrainingForm_Previews: PreviewProvider {
     static var previews: some View {
-        TrainingForm(model: TrainingFormModel(training: .mock))
+        TrainingForm(model: TrainingFormModel(training: .mock), onSave: {_ in })
     }
 }

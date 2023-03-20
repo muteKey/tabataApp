@@ -33,21 +33,17 @@ struct TrainingDetails: View {
         .sheet(unwrapping: self.$model.destination,
                case: /TrainingDetailModel.Destination.edit) { $formModel in
             NavigationStack {
-                TrainingForm(model: formModel)
-                    .navigationTitle(L10n.editTraining)
-                    .toolbar {
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button(L10n.save) {
-                                self.model.saveTapped(formModel.training)
-                            }
-                        }
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button(L10n.cancel) {
-                                self.model.cancelEditingTapped()
-                            }
+                TrainingForm(model: formModel, onSave: { training in
+                    self.model.saveTapped(training)
+                })
+                .navigationTitle(L10n.editTraining)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button(L10n.cancel) {
+                            self.model.cancelEditingTapped()
                         }
                     }
-
+                }
             }
         }
     }

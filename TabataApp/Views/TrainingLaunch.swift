@@ -34,8 +34,7 @@ struct TrainingLaunch: View {
     var body: some View {
         VStack {
             Text(L10n.totalTraining)
-            ProgressView(value: Double(self.totalTimeRemaining), total: Double(self.model.phasesModel.totalDuration))
-                .tint(.black)
+            ProgressView(value: Double(self.totalTimeRemaining), total: Double(self.model.phasesModel.totalDuration))                
             .padding()
             ZStack {
                 CircularProgressView(progress: self.phaseProgress, tintColor: self.model.phasesModel.color)
@@ -110,6 +109,8 @@ struct TrainingLaunch: View {
         .navigationTitle(model.training.title)
         .navigationBarTitleDisplayMode(.inline)
         .padding()
+        .onAppear { UIApplication.shared.isIdleTimerDisabled = true }
+        .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
         .onReceive(timerModel.timerPublisher) { _ in
             guard totalTimeRemaining < model.phasesModel.totalDuration else {
                 self.isTrainingFinished = true
@@ -123,6 +124,7 @@ struct TrainingLaunch: View {
             } else {
                 self.model.phasesModel.updatePhase()
                 playSound()
+                hapticFeedback()
                 phaseTimeRemaining = self.model.phasesModel.currentDuration
             }
         }
@@ -139,7 +141,8 @@ struct TrainingLaunch: View {
     }
     
     func hapticFeedback() {
-        
+        let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+        impactMed.impactOccurred()
     }
 }
 

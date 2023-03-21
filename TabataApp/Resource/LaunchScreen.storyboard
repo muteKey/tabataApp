@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgRect" translatesAutoresizingMaskIntoConstraints="NO" id="IVp-OH-oeS">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZaR-x4-g0f">
+                                <rect key="frame" x="76.666666666666686" y="306" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="je9-Rx-iOB"/>
+                                    <constraint firstAttribute="width" constant="240" id="ppP-MZ-ZLI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZaR-x4-g0f" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6rz-Ha-XiS"/>
+                            <constraint firstItem="IVp-OH-oeS" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="8Ad-rj-4GA"/>
+                            <constraint firstItem="ZaR-x4-g0f" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ByL-W9-ufm"/>
+                            <constraint firstItem="IVp-OH-oeS" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="EZn-lR-q9Q"/>
+                            <constraint firstAttribute="bottom" secondItem="IVp-OH-oeS" secondAttribute="bottom" id="FgC-bd-ZTG"/>
+                            <constraint firstItem="IVp-OH-oeS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ah9-hb-n2F"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-437.40458015267171" y="389.43661971830988"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bgRect" width="1024" height="1024"/>
+        <image name="icon" width="900" height="900"/>
+    </resources>
+</document>

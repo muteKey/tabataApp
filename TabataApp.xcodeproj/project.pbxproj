@@ -31,6 +31,7 @@
 		8C9EE99929BC990C0020E4FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE99829BC990C0020E4FD /* Preview Assets.xcassets */; };
 		8C9EE9A229BC9B070020E4FD /* TrainingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE9A129BC9B070020E4FD /* TrainingsList.swift */; };
 		8C9EE9A429BC9BDB0020E4FD /* TrainingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE9A329BC9BDB0020E4FD /* TrainingDetails.swift */; };
+		8CF3EA9129C9C6F600D82F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3EA9029C9C6F600D82F98 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		8C9EE99829BC990C0020E4FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C9EE9A129BC9B070020E4FD /* TrainingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsList.swift; sourceTree = "<group>"; };
 		8C9EE9A329BC9BDB0020E4FD /* TrainingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetails.swift; sourceTree = "<group>"; };
+		8CF3EA9029C9C6F600D82F98 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,8 @@
 		8C19B00329BFBA49002649AD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				8C665A1829C86CB5008750AE /* Localizable.strings */,
+				8CF3EA9029C9C6F600D82F98 /* LaunchScreen.storyboard */,
 				8C19B00429BFBA5F002649AD /* gong.wav */,
 			);
 			path = Resource;
@@ -148,7 +152,6 @@
 				8C9EE99429BC990C0020E4FD /* Assets.xcassets */,
 				8C9EE99629BC990C0020E4FD /* TabataApp.entitlements */,
 				8C9EE99729BC990C0020E4FD /* Preview Content */,
-				8C665A1829C86CB5008750AE /* Localizable.strings */,
 			);
 			path = TabataApp;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				8C19B00529BFBA5F002649AD /* gong.wav in Resources */,
 				8C665A1C29C87956008750AE /* swiftgen.yml in Resources */,
 				8C665A1629C86CB5008750AE /* Localizable.strings in Resources */,
+				8CF3EA9129C9C6F600D82F98 /* LaunchScreen.storyboard in Resources */,
 				8C9EE99929BC990C0020E4FD /* Preview Assets.xcassets in Resources */,
 				8C9EE99529BC990C0020E4FD /* Assets.xcassets in Resources */,
 			);
@@ -240,6 +244,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		8C665A2129C87EE6008750AE /* Swiftgen */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -415,18 +420,21 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TabataApp/TabataApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"TabataApp/Preview Content\"";
 				DEVELOPMENT_TEAM = J4BH25WEZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TabataApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -455,18 +463,21 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TabataApp/TabataApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"TabataApp/Preview Content\"";
 				DEVELOPMENT_TEAM = J4BH25WEZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TabataApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

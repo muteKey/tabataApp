@@ -16,6 +16,7 @@ struct TrainingForm: View {
                 TextField(L10n.trainingName, text: self.$model.training.title)
                     .autocorrectionDisabled(true)
                     .keyboardType(.alphabet)
+                    .submitLabel(.done)
 
                 Stepper("\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))", value: self.$model.training.breakBetweenLaps, in: self.model.breakBetweenLapsRange)
                 

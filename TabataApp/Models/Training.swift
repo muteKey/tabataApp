@@ -4,6 +4,16 @@ protocol Validatable {
     var isValid: Bool { get }
 }
 
+enum ValidatedFieldState {
+    case valid
+    case invalid(String)
+    
+    var isValid: Bool {
+        if case .valid = self { return true }
+        return false
+    }
+}
+
 struct Training: Identifiable, Hashable, Codable {
     var id = UUID()
     var title: String

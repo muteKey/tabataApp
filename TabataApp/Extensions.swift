@@ -14,3 +14,9 @@ extension View {
         UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }
+
+extension TextField {
+    func formFieldStyle() -> some View {
+        return self.modifier(FormTextField())
+    }
+}

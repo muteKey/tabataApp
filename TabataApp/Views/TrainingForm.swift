@@ -13,33 +13,40 @@ struct TrainingForm: View {
     var body: some View {
         VStack {
             List {
-                TextField(L10n.trainingName, text: self.$model.training.title)
-                    .autocorrectionDisabled(true)
-                    .keyboardType(.alphabet)
-                    .submitLabel(.done)
-
-                Stepper("\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))", value: self.$model.training.breakBetweenLaps, in: self.model.breakBetweenLapsRange)
+                FormEntryField(model.validateTrainingTitle()) {
+                    TextField(L10n.trainingName, text: self.$model.training.title)
+                        .formFieldStyle()                    
+                }
+                
+                FormEntryField(model.validateBreakBetweenLaps()) {
+                    Stepper("\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))", value: self.$model.training.breakBetweenLaps, in: self.model.breakBetweenLapsRange)
+                }
                 
                 ForEach(self.$model.training.laps) { $lap in
                     if lap.phases.count > 0 {
                         Section {
                             ForEach($lap.phases) { phase in
                                 VStack {
-                                    HStack {
-                                        TextField(L10n.phaseTitle, text: phase.title)
-                                            .autocorrectionDisabled(true)
-                                            .keyboardType(.alphabet)
-                                            .submitLabel(.done)
-                                        
-                                        Button(role: .destructive) {
-                                            hideKeyboard()
-                                            self.model.removePhase(phase.wrappedValue, from: lap)
-                                        } label: {
-                                            Image(systemName: "minus.circle.fill")
+                                    FormEntryField(model.validatePhaseTitle(phase.title.wrappedValue)) { 
+                                        HStack {
+                                            TextField(L10n.phaseTitle, text: phase.title)
+                                                .formFieldStyle()
+                                            
+                                            Button(role: .destructive) {
+                                                hideKeyboard()
+                                                self.model.removePhase(phase.wrappedValue, from: lap)
+                                            } label: {
+                                                Image(systemName: "minus.circle.fill")
+                                            }
                                         }
                                     }
-                                    Stepper("\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))", value: phase.workDuration, in: self.model.workDurationRange)
-                                    Stepper("\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))", value: phase.breakDuration, in: self.model.breakDurationRange)
+                                    FormEntryField(model.validatePhaseWorkDuration(phase.workDuration.wrappedValue)) {
+                                        Stepper("\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))", value: phase.workDuration, in: self.model.workDurationRange)
+                                    }
+                                    
+                                    FormEntryField(model.validatePhaseBreakDuration(phase.wrappedValue.breakDuration)) {
+                                        Stepper("\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))", value: phase.breakDuration, in: self.model.breakDurationRange)
+                                    }
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -70,7 +77,37 @@ struct TrainingForm: View {
                 .disabled(!model.training.isValid)
             }
         }
+    }
+}
 
+struct FormTextField: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .autocorrectionDisabled(true)
+            .keyboardType(.alphabet)
+            .submitLabel(.done)
+    }
+}
+
+struct FormEntryField<Content: View>: View {
+    let validationState: ValidatedFieldState
+    let inputField: Content
+    
+    init(_ validationState: ValidatedFieldState, @ViewBuilder _ inputField: () -> Content) {
+        self.inputField = inputField()
+        self.validationState = validationState
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            inputField
+            if case let .invalid(text) = validationState {
+                Text(text)
+                    .font(.caption2)
+                    .foregroundColor(.red)
+            }
+        }
+        
     }
 }
 

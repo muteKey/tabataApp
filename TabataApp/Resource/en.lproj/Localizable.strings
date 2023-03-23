@@ -23,3 +23,9 @@
 "launch" = "Launch";
 "edit" = "Edit";
 "lap" = "Lap";
+
+"training_title_error" = "Training title should not be empty";
+"training_break_between_laps_error" = "Break between laps duration should be greater than zero";
+"phase_title_error" = "Phase title should not be empty";
+"work_duration_error" = "Work duration should be greater than zero";
+"break_duration_error" = "Break duration should be greater than zero";

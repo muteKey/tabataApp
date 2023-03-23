@@ -24,6 +24,8 @@ internal enum L10n {
   internal static let breakBetweenLaps = L10n.tr("Localizable", "break_between_laps", fallback: "Break between laps")
   /// Break Duration
   internal static let breakDuration = L10n.tr("Localizable", "break_duration", fallback: "Break Duration")
+  /// Break duration should be greater than zero
+  internal static let breakDurationError = L10n.tr("Localizable", "break_duration_error", fallback: "Break duration should be greater than zero")
   /// Cancel
   internal static let cancel = L10n.tr("Localizable", "cancel", fallback: "Cancel")
   /// Edit
@@ -42,6 +44,8 @@ internal enum L10n {
   internal static let phaseDuration = L10n.tr("Localizable", "phase_duration", fallback: "Phase Duration")
   /// Phase Title
   internal static let phaseTitle = L10n.tr("Localizable", "phase_title", fallback: "Phase Title")
+  /// Phase title should not be empty
+  internal static let phaseTitleError = L10n.tr("Localizable", "phase_title_error", fallback: "Phase title should not be empty")
   /// Save
   internal static let save = L10n.tr("Localizable", "save", fallback: "Save")
   /// Skip
@@ -54,12 +58,18 @@ internal enum L10n {
   internal static let totalDuration = L10n.tr("Localizable", "total_duration", fallback: "Total duration")
   /// Total training progress
   internal static let totalTraining = L10n.tr("Localizable", "total_training", fallback: "Total training progress")
+  /// Break between laps duration should be greater than zero
+  internal static let trainingBreakBetweenLapsError = L10n.tr("Localizable", "training_break_between_laps_error", fallback: "Break between laps duration should be greater than zero")
   /// Training Finished
   internal static let trainingFinished = L10n.tr("Localizable", "training_finished", fallback: "Training Finished")
   /// Training Name
   internal static let trainingName = L10n.tr("Localizable", "training_name", fallback: "Training Name")
+  /// Training title should not be empty
+  internal static let trainingTitleError = L10n.tr("Localizable", "training_title_error", fallback: "Training title should not be empty")
   /// Work Duration
   internal static let workDuration = L10n.tr("Localizable", "work_duration", fallback: "Work Duration")
+  /// Work duration should be greater than zero
+  internal static let workDurationError = L10n.tr("Localizable", "work_duration_error", fallback: "Work duration should be greater than zero")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

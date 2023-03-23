@@ -1,6 +1,6 @@
 strings:
   inputs:
-    - TabataApp/en.lproj/Localizable.strings
+    - TabataApp/Resource/en.lproj/Localizable.strings
   outputs:
     - templateName: structured-swift5
       output: TabataApp/Strings-generated.swift

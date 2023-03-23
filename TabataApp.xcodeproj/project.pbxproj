@@ -17,9 +17,9 @@
 		8C665A1629C86CB5008750AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C665A1829C86CB5008750AE /* Localizable.strings */; };
 		8C665A1C29C87956008750AE /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8C665A1B29C87956008750AE /* swiftgen.yml */; };
 		8C665A2629C88F80008750AE /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C665A2429C88F7F008750AE /* Assets.swift */; };
-		8C665A2729C88F80008750AE /* Strings-generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C665A2529C88F80008750AE /* Strings-generated.swift */; };
 		8C6AF15D29BF21030060EB20 /* TrainingLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */; };
 		8C86CFFC29C2196D008BA5EC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86CFFB29C2196D008BA5EC /* DataManager.swift */; };
+		8C885AA829CB555F00D96530 /* Strings-generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C885AA729CB555F00D96530 /* Strings-generated.swift */; };
 		8C8BEDCF29BE0FA600C4275A /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDCE29BE0FA600C4275A /* Training.swift */; };
 		8C8BEDD329BE237D00C4275A /* TrainingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD229BE237D00C4275A /* TrainingForm.swift */; };
 		8C8BEDD529BE523A00C4275A /* TrainingsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BEDD429BE523A00C4275A /* TrainingsListModel.swift */; };
@@ -45,9 +45,9 @@
 		8C665A1929C86CBE008750AE /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8C665A1B29C87956008750AE /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		8C665A2429C88F7F008750AE /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
-		8C665A2529C88F80008750AE /* Strings-generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings-generated.swift"; sourceTree = "<group>"; };
 		8C6AF15C29BF21030060EB20 /* TrainingLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLaunch.swift; sourceTree = "<group>"; };
 		8C86CFFB29C2196D008BA5EC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		8C885AA729CB555F00D96530 /* Strings-generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings-generated.swift"; sourceTree = "<group>"; };
 		8C8BEDCE29BE0FA600C4275A /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		8C8BEDD229BE237D00C4275A /* TrainingForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingForm.swift; sourceTree = "<group>"; };
 		8C8BEDD429BE523A00C4275A /* TrainingsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListModel.swift; sourceTree = "<group>"; };
@@ -141,8 +141,8 @@
 		8C9EE98F29BC99090020E4FD /* TabataApp */ = {
 			isa = PBXGroup;
 			children = (
+				8C885AA729CB555F00D96530 /* Strings-generated.swift */,
 				8C665A2429C88F7F008750AE /* Assets.swift */,
-				8C665A2529C88F80008750AE /* Strings-generated.swift */,
 				8C86CFFA29C2195B008BA5EC /* Dependencies */,
 				8C19B00329BFBA49002649AD /* Resource */,
 				8C8BEDCD29BE0F8E00C4275A /* Models */,
@@ -259,7 +259,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "swiftgen strings --templateName structured-swift5 --output TabataApp/Strings-generated.swift TabataApp/en.lproj/Localizable.strings\nswiftgen xcassets --templateName swift5 --output TabataApp/Assets.swift TabataApp/Assets.xcassets\n";
+			shellScript = "swiftgen strings --templateName structured-swift5 --output TabataApp/Strings-generated.swift TabataApp/Resource/en.lproj/Localizable.strings\nswiftgen xcassets --templateName swift5 --output TabataApp/Assets.swift TabataApp/Assets.xcassets\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -278,7 +278,7 @@
 				8C8BEDD729BE528C00C4275A /* TrainingDetailsModel.swift in Sources */,
 				8C9EE9A429BC9BDB0020E4FD /* TrainingDetails.swift in Sources */,
 				8C8DE7BC29C0D3F100E15B58 /* TrainingFormModel.swift in Sources */,
-				8C665A2729C88F80008750AE /* Strings-generated.swift in Sources */,
+				8C885AA829CB555F00D96530 /* Strings-generated.swift in Sources */,
 				8C29F82E29C0959500DADDFF /* AppModel.swift in Sources */,
 				8C9EE99129BC99090020E4FD /* TabataApp.swift in Sources */,
 				8C29F82C29C0951E00DADDFF /* AppView.swift in Sources */,

@@ -13,7 +13,7 @@ final class TrainingFormModel: ObservableObject, Hashable {
     enum Content {
         case section(String, [Training.Phase])
     }
-    
+        
     @Published var training: Training
     
     
@@ -56,7 +56,31 @@ final class TrainingFormModel: ObservableObject, Hashable {
         guard let index = training.laps.firstIndex(where: {$0.id == lap.id }) else { return "" }
         return "\(L10n.lap) \(index + 1)"
     }
+}
+
+extension TrainingFormModel {
+    func validateTrainingTitle() -> ValidatedFieldState {
+        return training.title.isEmpty ? ValidatedFieldState.invalid(L10n.trainingTitleError) : ValidatedFieldState.valid
+    }
+
+    func validateBreakBetweenLaps() -> ValidatedFieldState {
+        return training.breakBetweenLaps > 0 ? ValidatedFieldState.valid : ValidatedFieldState.invalid(L10n.trainingBreakBetweenLapsError)
+    }
+
+    func validatePhaseTitle(_ title: String) -> ValidatedFieldState {
+        return title.isEmpty ? ValidatedFieldState.invalid(L10n.phaseTitleError) : ValidatedFieldState.valid
+    }
     
+    func validatePhaseWorkDuration(_ workDuration: Int) -> ValidatedFieldState {
+        return workDuration > 0 ? ValidatedFieldState.valid : ValidatedFieldState.invalid(L10n.workDurationError)
+    }
+    
+    func validatePhaseBreakDuration(_ breakDuration: Int) -> ValidatedFieldState {
+        return breakDuration > 0 ? ValidatedFieldState.valid : ValidatedFieldState.invalid(L10n.breakDurationError)
+    }
+}
+
+extension TrainingFormModel {
     var breakBetweenLapsRange: ClosedRange<Int> {
         return 0...60
     }

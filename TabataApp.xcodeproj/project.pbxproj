@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C01F47B29DAFF0400FCC26F /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01F47A29DAFF0400FCC26F /* TimePicker.swift */; };
 		8C19B00229BFA438002649AD /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19B00129BFA438002649AD /* CircularProgressView.swift */; };
 		8C19B00529BFBA5F002649AD /* gong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C19B00429BFBA5F002649AD /* gong.wav */; };
 		8C19B00829BFBAB2002649AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19B00729BFBAB2002649AD /* Extensions.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C01F47A29DAFF0400FCC26F /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		8C19B00129BFA438002649AD /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		8C19B00429BFBA5F002649AD /* gong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gong.wav; sourceTree = "<group>"; };
 		8C19B00729BFBAB2002649AD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		8C8BEDCC29BE0C9800C4275A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8C01F47A29DAFF0400FCC26F /* TimePicker.swift */,
 				8C9EE9A129BC9B070020E4FD /* TrainingsList.swift */,
 				8C9EE9A329BC9BDB0020E4FD /* TrainingDetails.swift */,
 				8C8BEDD229BE237D00C4275A /* TrainingForm.swift */,
@@ -270,6 +273,7 @@
 			files = (
 				8C6AF15D29BF21030060EB20 /* TrainingLaunch.swift in Sources */,
 				8C86CFFC29C2196D008BA5EC /* DataManager.swift in Sources */,
+				8C01F47B29DAFF0400FCC26F /* TimePicker.swift in Sources */,
 				8C8BEDD329BE237D00C4275A /* TrainingForm.swift in Sources */,
 				8C9EE9A229BC9B070020E4FD /* TrainingsList.swift in Sources */,
 				8C8ECB8B29BF362200A3EF7E /* TrainingLaunchModel.swift in Sources */,
@@ -420,7 +424,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TabataApp/TabataApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"TabataApp/Preview Content\"";
 				DEVELOPMENT_TEAM = J4BH25WEZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -463,7 +467,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TabataApp/TabataApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"TabataApp/Preview Content\"";
 				DEVELOPMENT_TEAM = J4BH25WEZ3;
 				ENABLE_HARDENED_RUNTIME = YES;

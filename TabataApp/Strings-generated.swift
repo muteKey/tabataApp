@@ -36,6 +36,8 @@ internal enum L10n {
   internal static let lap = L10n.tr("Localizable", "lap", fallback: "Lap")
   /// Launch
   internal static let launch = L10n.tr("Localizable", "launch", fallback: "Launch")
+  /// Minutes
+  internal static let minutes = L10n.tr("Localizable", "minutes", fallback: "Minutes")
   /// My Trainings
   internal static let myTrainings = L10n.tr("Localizable", "my_trainings", fallback: "My Trainings")
   /// Number of laps
@@ -48,6 +50,8 @@ internal enum L10n {
   internal static let phaseTitleError = L10n.tr("Localizable", "phase_title_error", fallback: "Phase title should not be empty")
   /// Save
   internal static let save = L10n.tr("Localizable", "save", fallback: "Save")
+  /// Seconds
+  internal static let seconds = L10n.tr("Localizable", "seconds", fallback: "Seconds")
   /// Skip
   internal static let skip = L10n.tr("Localizable", "skip", fallback: "Skip")
   /// Stop

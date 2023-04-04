@@ -79,17 +79,3 @@ extension TrainingFormModel {
         return breakDuration > 0 ? ValidatedFieldState.valid : ValidatedFieldState.invalid(L10n.breakDurationError)
     }
 }
-
-extension TrainingFormModel {
-    var breakBetweenLapsRange: ClosedRange<Int> {
-        return 0...60
-    }
-    
-    var workDurationRange: ClosedRange<Int> {
-        return 0...45*60
-    }
-    
-    var breakDurationRange: ClosedRange<Int> {
-        return 0...30*60
-    }
-}

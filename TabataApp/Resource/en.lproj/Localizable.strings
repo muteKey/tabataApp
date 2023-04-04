@@ -29,3 +29,6 @@
 "phase_title_error" = "Phase title should not be empty";
 "work_duration_error" = "Work duration should be greater than zero";
 "break_duration_error" = "Break duration should be greater than zero";
+
+"minutes" = "Minutes";
+"seconds" = "Seconds";

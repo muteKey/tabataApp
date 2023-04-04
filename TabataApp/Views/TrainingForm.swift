@@ -15,19 +15,20 @@ struct TrainingForm: View {
             List {
                 FormEntryField(model.validateTrainingTitle()) {
                     TextField(L10n.trainingName, text: self.$model.training.title)
-                        .formFieldStyle()                    
+                        .formFieldStyle()
                 }
                 
-                FormEntryField(model.validateBreakBetweenLaps()) {
-                    Stepper("\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))", value: self.$model.training.breakBetweenLaps, in: self.model.breakBetweenLapsRange)
-                }
+                FormTimeEntryField(model.validateBreakBetweenLaps(),
+                                   hint: "\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))",
+                                   {
+                        TimePicker(selection: self.$model.training.breakBetweenLaps)
+                })
                 
                 ForEach(self.$model.training.laps) { $lap in
                     if lap.phases.count > 0 {
                         Section {
                             ForEach($lap.phases) { phase in
-                                VStack {
-                                    FormEntryField(model.validatePhaseTitle(phase.title.wrappedValue)) { 
+                                    FormEntryField(model.validatePhaseTitle(phase.title.wrappedValue)) {
                                         HStack {
                                             TextField(L10n.phaseTitle, text: phase.title)
                                                 .formFieldStyle()
@@ -40,15 +41,20 @@ struct TrainingForm: View {
                                             }
                                         }
                                     }
-                                    FormEntryField(model.validatePhaseWorkDuration(phase.workDuration.wrappedValue)) {
-                                        Stepper("\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))", value: phase.workDuration, in: self.model.workDurationRange)
-                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                    .padding(4)
+                                    FormTimeEntryField(model.validatePhaseWorkDuration(phase.workDuration.wrappedValue),
+                                                                                       hint: "\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))",
+                                                                                       {
+                                        TimePicker(selection: phase.workDuration)
+                                    })
+                                    .padding(4)
                                     
-                                    FormEntryField(model.validatePhaseBreakDuration(phase.wrappedValue.breakDuration)) {
-                                        Stepper("\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))", value: phase.breakDuration, in: self.model.breakDurationRange)
+                                    FormTimeEntryField(model.validatePhaseBreakDuration(phase.wrappedValue.breakDuration),
+                                                       hint: "\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))") {
+                                        TimePicker(selection: phase.breakDuration)
                                     }
-                                }
-                                .buttonStyle(PlainButtonStyle())
+                                    .padding(4)
                             }
                         } header: {
                             Text(self.model.sectionTitle(for: lap))
@@ -63,11 +69,13 @@ struct TrainingForm: View {
                 }
             }
             .listStyle(.insetGrouped)
+            .padding(8)
             Button {
                 self.model.addLap()
             } label: {
                 Label(L10n.addLap, systemImage: "plus.app.fill")
             }
+            .padding()
         }
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
@@ -108,6 +116,39 @@ struct FormEntryField<Content: View>: View {
             }
         }
         
+    }
+}
+
+struct FormTimeEntryField<Content: View>: View {
+    let validationState: ValidatedFieldState
+    let hint: String
+    let timeField: Content
+    @State private var isExpanded = false
+    
+    init(_ validationState: ValidatedFieldState, hint: String, @ViewBuilder _ timeField: () -> Content) {
+        self.timeField = timeField()
+        self.validationState = validationState
+        self.hint = hint
+    }
+
+    
+    var body: some View {
+        Button {
+            isExpanded.toggle()
+        } label: {
+            VStack(alignment: .leading) {
+                Text(hint)
+                if case let .invalid(text) = validationState {
+                    Text(text)
+                        .font(.caption2)
+                        .foregroundColor(.red)
+                }
+                if isExpanded {
+                    timeField
+                }
+            }
+        }
+        .buttonStyle(.automatic)
     }
 }
 

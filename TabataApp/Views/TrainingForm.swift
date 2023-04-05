@@ -11,78 +11,93 @@ struct TrainingForm: View {
     @ObservedObject var model: TrainingFormModel
     var onSave: (Training) -> Void
     var body: some View {
-        VStack {
-            List {
-                FormEntryField(model.validateTrainingTitle()) {
-                    TextField(L10n.trainingName, text: self.$model.training.title)
-                        .formFieldStyle()
-                }
-                
-                FormTimeEntryField(model.validateBreakBetweenLaps(),
-                                   hint: "\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))",
-                                   {
-                        TimePicker(selection: self.$model.training.breakBetweenLaps)
-                })
-                
-                ForEach(self.$model.training.laps) { $lap in
-                    if lap.phases.count > 0 {
-                        Section {
-                            ForEach($lap.phases) { phase in
-                                    FormEntryField(model.validatePhaseTitle(phase.title.wrappedValue)) {
-                                        HStack {
-                                            TextField(L10n.phaseTitle, text: phase.title)
-                                                .formFieldStyle()
-                                            
-                                            Button(role: .destructive) {
-                                                hideKeyboard()
-                                                self.model.removePhase(phase.wrappedValue, from: lap)
-                                            } label: {
-                                                Image(systemName: "minus.circle.fill")
+        ScrollViewReader { proxy in
+            VStack {
+                List {
+                    FormEntryField(model.validateTrainingTitle()) {
+                        TextField(L10n.trainingName, text: self.$model.training.title)
+                            .formFieldStyle()
+                    }
+                    
+                    FormTimeEntryField(model.validateBreakBetweenLaps(),
+                                       hint: "\(L10n.breakBetweenLaps) \(formatDuration(self.model.training.breakBetweenLaps))",
+                                       {
+                            TimePicker(selection: self.$model.training.breakBetweenLaps)
+                    })
+                    
+                    ForEach(self.$model.training.laps) { $lap in
+                        if !lap.phases.isEmpty {
+                            Section {
+                                ForEach($lap.phases) { phase in
+                                        FormEntryField(model.validatePhaseTitle(phase.title.wrappedValue)) {
+                                            HStack {
+                                                TextField(L10n.phaseTitle, text: phase.title)
+                                                    .formFieldStyle()
+                                                
+                                                Button(role: .destructive) {
+                                                    hideKeyboard()
+                                                    self.model.removePhase(phase.wrappedValue, from: lap)
+                                                } label: {
+                                                    Image(systemName: "minus.circle.fill")
+                                                }
                                             }
                                         }
-                                    }
-                                    .buttonStyle(PlainButtonStyle())
-                                    .padding(4)
-                                    FormTimeEntryField(model.validatePhaseWorkDuration(phase.workDuration.wrappedValue),
-                                                                                       hint: "\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))",
-                                                                                       {
-                                        TimePicker(selection: phase.workDuration)
-                                    })
-                                    .padding(4)
-                                    
-                                    FormTimeEntryField(model.validatePhaseBreakDuration(phase.wrappedValue.breakDuration),
-                                                       hint: "\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))") {
-                                        TimePicker(selection: phase.breakDuration)
-                                    }
-                                    .padding(4)
+                                        .buttonStyle(PlainButtonStyle())
+                                        .padding(4)
+                                        FormTimeEntryField(model.validatePhaseWorkDuration(phase.workDuration.wrappedValue),
+                                                                                           hint: "\(L10n.workDuration) \(formatDuration(phase.wrappedValue.workDuration))",
+                                                                                           {
+                                            TimePicker(selection: phase.workDuration)
+                                        })
+                                        .padding(4)
+                                        
+                                        FormTimeEntryField(model.validatePhaseBreakDuration(phase.wrappedValue.breakDuration),
+                                                           hint: "\(L10n.breakDuration) \(formatDuration(phase.wrappedValue.breakDuration))") {
+                                            TimePicker(selection: phase.breakDuration)
+                                        }
+                                        .padding(4)
+                                }
+                            } header: {
+                                Text(self.model.sectionTitle(for: lap))
+                            } footer: {
+                                Button {
+                                    self.model.addPhase(for: lap)
+                                } label: {
+                                    Text(L10n.addPhase)
+                                }
                             }
-                        } header: {
-                            Text(self.model.sectionTitle(for: lap))
-                        } footer: {
-                            Button {
-                                self.model.addPhase(for: lap)
-                            } label: {
-                                Text(L10n.addPhase)
-                            }
+                            .id(lap.id)
                         }
                     }
+                    .onChange(of: self.model.training.laps) { _ in
+                        guard let last = self.model.training.laps.last else { return }
+                        print(self.model.training.laps)
+                        withAnimation(Animation.linear.delay(0.5)) {
+                            proxy.scrollTo(last.id)
+                        }
+                        
+                    }
+
                 }
-            }
-            .listStyle(.insetGrouped)
-            .padding(8)
-            Button {
-                self.model.addLap()
-            } label: {
-                Label(L10n.addLap, systemImage: "plus.app.fill")
-            }
-            .padding()
-        }
-        .toolbar {
-            ToolbarItem(placement: .confirmationAction) {
-                Button(L10n.save) {
-                    self.onSave(model.training)
+                .listStyle(.insetGrouped)
+                .padding(8)
+                Button {
+                    self.model.addLap()
+                    hideKeyboard()
+//                    guard let lap = model.training.laps.last else {return}
+//                    proxy.scrollTo(lap.id)
+                } label: {
+                    Label(L10n.addLap, systemImage: "plus.app.fill")
                 }
-                .disabled(!model.training.isValid)
+                .padding()
+            }
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(L10n.save) {
+                        self.onSave(model.training)
+                    }
+                    .disabled(!model.training.isValid)
+                }
             }
         }
     }

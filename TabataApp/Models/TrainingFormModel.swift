@@ -22,23 +22,17 @@ final class TrainingFormModel: ObservableObject, Hashable {
     }
     
     func addLap() {
-        withAnimation {
-            let defaultLap = Training.Lap(phases: [Training.Phase(breakDuration: 5, workDuration: 10, title: "")])
-            self.training.laps.append(defaultLap)
-        }
+        let defaultLap = Training.Lap(phases: [Training.Phase(breakDuration: 5, workDuration: 10, title: "")])
+        self.training.laps.append(defaultLap)
     }
     
     func removeLap(_ lap: Training.Lap) {
-        withAnimation {
-            self.training.laps.removeAll { $0.id == lap.id }
-        }
+        self.training.laps.removeAll { $0.id == lap.id }
     }
     
     func addPhase(for lap: Training.Lap) {
         guard let lapIndex = training.laps.firstIndex(where: {$0.id == lap.id }) else { return }
-        withAnimation {
-            self.training.laps[lapIndex].phases.append(Training.Phase(breakDuration: 5, workDuration: 10, title: ""))
-        }
+        self.training.laps[lapIndex].phases.append(Training.Phase(breakDuration: 5, workDuration: 10, title: ""))
     }
     
     func removePhase(_ phase: Training.Phase, from lap: Training.Lap) {

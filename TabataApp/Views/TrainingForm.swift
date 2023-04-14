@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Utilities
+import Models
 
 struct TrainingForm: View {
     @ObservedObject var model: TrainingFormModel
@@ -82,7 +84,8 @@ struct TrainingForm: View {
                 .listStyle(.insetGrouped)
                 .padding(8)
                 Button {
-                    self.model.addLap()
+                    self.model.addLap(Training.Lap(phases: [Training.Phase.default])
+)
                     hideKeyboard()
 //                    guard let lap = model.training.laps.last else {return}
 //                    proxy.scrollTo(lap.id)
@@ -100,15 +103,6 @@ struct TrainingForm: View {
                 }
             }
         }
-    }
-}
-
-struct FormTextField: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .autocorrectionDisabled(true)
-            .keyboardType(.alphabet)
-            .submitLabel(.done)
     }
 }
 
@@ -145,7 +139,6 @@ struct FormTimeEntryField<Content: View>: View {
         self.validationState = validationState
         self.hint = hint
     }
-
     
     var body: some View {
         Button {
@@ -169,6 +162,33 @@ struct FormTimeEntryField<Content: View>: View {
 
 struct TrainingForm_Previews: PreviewProvider {
     static var previews: some View {
-        TrainingForm(model: TrainingFormModel(training: .mock), onSave: {_ in })
+        TrainingForm(model: TrainingFormModel(training: .forPreview), onSave: {_ in })
+    }
+}
+
+extension TrainingFormModel {
+    func sectionTitle(for lap: Training.Lap) -> String {
+        guard let index = training.laps.firstIndex(where: {$0.id == lap.id }) else { return "" }
+        return "\(L10n.lap) \(index + 1)"
+    }
+
+    func validateTrainingTitle() -> ValidatedFieldState {
+        return training.title.isEmpty ? ValidatedFieldState.invalid(L10n.trainingTitleError) : ValidatedFieldState.valid
+    }
+
+    func validateBreakBetweenLaps() -> ValidatedFieldState {
+        return training.breakBetweenLaps > 0 ? ValidatedFieldState.valid : ValidatedFieldState.invalid(L10n.trainingBreakBetweenLapsError)
+    }
+
+    func validatePhaseTitle(_ title: String) -> ValidatedFieldState {
+        return title.isEmpty ? ValidatedFieldState.invalid(L10n.phaseTitleError) : ValidatedFieldState.valid
+    }
+    
+    func validatePhaseWorkDuration(_ workDuration: Int) -> ValidatedFieldState {
+        return workDuration > 0 ? ValidatedFieldState.valid : ValidatedFieldState.invalid(L10n.workDurationError)
+    }
+    
+    func validatePhaseBreakDuration(_ breakDuration: Int) -> ValidatedFieldState {
+        return breakDuration > 0 ? ValidatedFieldState.valid : ValidatedFieldState.invalid(L10n.breakDurationError)
     }
 }

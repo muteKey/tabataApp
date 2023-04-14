@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Models
 
 struct AppView: View {
     @ObservedObject var model: AppModel

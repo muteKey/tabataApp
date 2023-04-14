@@ -1,8 +1,8 @@
 import SwiftUI
 import Combine
 
-class AppModel: ObservableObject {
-    enum Destination: Hashable {
+public class AppModel: ObservableObject {
+    public enum Destination: Hashable, Equatable {
         case detail(TrainingDetailModel)
         case launch(TrainingLaunchModel)
     }
@@ -13,14 +13,14 @@ class AppModel: ObservableObject {
     
     private var autosaveTimer: Timer?
 
-    @Published var path: [Destination] {
+    @Published public var path: [Destination] {
         didSet { self.bind() }
     }
     
     private var detailCancellable: AnyCancellable?
-    @Published var trainingsList: TrainingsListModel
+    @Published public var trainingsList: TrainingsListModel
     
-    init(path: [Destination], trainingsList: TrainingsListModel) {
+    public init(path: [Destination], trainingsList: TrainingsListModel) {
         self.path = path
         self.trainingsList = trainingsList
         self.scheduleAutosave()

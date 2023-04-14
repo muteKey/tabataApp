@@ -8,23 +8,19 @@
 import Foundation
 import SwiftUI
 
-final class TrainingPhasesModel {
-    private var phases: [Phase]
-    private(set) var currentDuration: Int = 0
-    private var currentIndex = -1 {
-        didSet {
-            print(self.phases[currentIndex])
-        }
-    }
-    let totalDuration: Int
+public final class TrainingPhasesModel {
+    public private(set) var phases: [Phase]
+    public private(set) var currentDuration: Int = 0
+    public private(set) var currentIndex = -1
+    public let totalDuration: Int
     
-    private enum Phase {
+    public enum Phase: Equatable {
         case breakBetweenLaps(Int)
         case lapWork(lapNumber: Int, duration: Int, title: String)
         case lapBreak(lapNumber: Int, duration: Int)
     }
     
-    init(training: Training) {
+    public init(training: Training) {
         self.phases = []
         self.totalDuration = training.totalDuration
         
@@ -38,13 +34,13 @@ final class TrainingPhasesModel {
         updatePhase()
     }
     
-    func updatePhase() {
+    public func updatePhase() {
         guard currentIndex < self.phases.count - 1 else { return }
         currentIndex += 1
         setPhaseDuration()
     }
         
-    var color: Color {
+    public var color: Color {
         guard self.phases.count > 0 else { return .black }
         switch self.phases[self.currentIndex] {
         case .breakBetweenLaps:
@@ -55,19 +51,7 @@ final class TrainingPhasesModel {
             return .blue
         }
     }
-    
-    var currentPhaseTitle: String {
-        guard self.phases.count > 0 else { return "" }
-        switch self.phases[self.currentIndex] {
-        case .breakBetweenLaps:
-            return L10n.breakBetweenLaps
-        case let .lapWork(index, _, title):
-            return "\(L10n.lap) \(index): \(title)"
-        case let .lapBreak(index, _):
-            return "\(L10n.lap) \(index): \(L10n.break)!"
-        }
-    }
-    
+        
     private func setPhaseDuration() {
         guard self.phases.count > 0 else { return }
         switch self.phases[self.currentIndex] {
@@ -78,26 +62,25 @@ final class TrainingPhasesModel {
         case let .lapBreak(_, duration):
             self.currentDuration = duration
         }
-    }
+    }    
 }
 
-final class TrainingLaunchModel: ObservableObject, Hashable {
-    static func == (lhs: TrainingLaunchModel, rhs: TrainingLaunchModel) -> Bool {
+public final class TrainingLaunchModel: ObservableObject, Hashable {
+    public static func == (lhs: TrainingLaunchModel, rhs: TrainingLaunchModel) -> Bool {
         rhs === lhs
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(ObjectIdentifier(self))
     }
     
-    let phasesModel: TrainingPhasesModel
-    var onStop: () -> Void = {}
-    var onFinish: () -> Void = {}
-    let training: Training
+    public let phasesModel: TrainingPhasesModel
+    public var onStop: () -> Void = {}
+    public var onFinish: () -> Void = {}
+    public let training: Training
     
-    init(training: Training) {
+    public init(training: Training) {
         self.phasesModel = TrainingPhasesModel(training: training)
         self.training = training
     }
-    
 }

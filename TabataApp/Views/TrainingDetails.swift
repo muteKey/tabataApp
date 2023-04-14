@@ -5,6 +5,7 @@
 
 import SwiftUI
 import SwiftUINavigation
+import Models
 
 struct TrainingDetails: View {
     @ObservedObject var model: TrainingDetailModel
@@ -57,7 +58,7 @@ struct TrainingDetails_Previews: PreviewProvider {
     struct Wrapper: View {
 
         var body: some View {
-            TrainingDetails(model: TrainingDetailModel(training: .mock))
+            TrainingDetails(model: TrainingDetailModel(training: .forPreview))
         }
     }
     static var previews: some View {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftUINavigation
+import Models
 
 struct TrainingsList: View {
     @ObservedObject var model: TrainingsListModel
@@ -59,11 +60,34 @@ struct TrainingRowItem: View {
     }
 }
 
+extension Training {
+    static var forPreview: Self {
+        return Training(title: "First Training",
+                        laps: [
+                            Training.Lap(phases: [
+                                Phase(breakDuration: 5, workDuration: 60, title: "Section 0"),
+                                Phase(breakDuration: 5, workDuration: 60, title: "Section 0")
+                            ]),
+                            
+                            Training.Lap(phases: [
+                                Phase(breakDuration: 5, workDuration: 60, title: "Section 1"),
+                                Phase(breakDuration: 5, workDuration: 60, title: "Section 1")
+                            ])
+                        ],
+                        breakBetweenLaps: 10)
+    }
+}
+
+extension TrainingsListModel {
+    static var forPreview: TrainingsListModel {
+        TrainingsListModel()
+    }
+}
 
 struct TrainingsList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            TrainingsList(model: .mock)
+            TrainingsList(model: .forPreview)
         }
         
     }

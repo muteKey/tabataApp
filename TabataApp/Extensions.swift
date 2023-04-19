@@ -1,6 +1,8 @@
 import AVFoundation
 import SwiftUI
 
+#if os(iOS)
+
 public extension AVPlayer {
     static let sharedDingPlayer: AVPlayer = {
         guard let url = Bundle.main.url(forResource: "gong", withExtension: "wav") else { fatalError("Failed to find sound file.") }
@@ -21,6 +23,7 @@ public extension TextField {
     }
 }
 
+@available(iOS 16, *)
 public struct FormTextField: ViewModifier {
     public func body(content: Content) -> some View {
         content
@@ -29,3 +32,5 @@ public struct FormTextField: ViewModifier {
             .submitLabel(.done)
     }
 }
+
+#endif

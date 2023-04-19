@@ -7,7 +7,6 @@
 
 import XCTest
 @testable import Models
-@testable import Utilities
 
 extension DataManager where T == [Training] {
     static var mock: DataManager {

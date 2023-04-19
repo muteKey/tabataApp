@@ -56,31 +56,6 @@ struct TrainingRowItem: View {
             Text("\(L10n.numberOfLaps): \(self.training.laps.count)")
             Text("\(L10n.totalDuration): \(formatDuration(self.training.totalDuration))")
         }
-
-    }
-}
-
-extension Training {
-    static var forPreview: Self {
-        return Training(title: "First Training",
-                        laps: [
-                            Training.Lap(phases: [
-                                Phase(breakDuration: 5, workDuration: 60, title: "Section 0"),
-                                Phase(breakDuration: 5, workDuration: 60, title: "Section 0")
-                            ]),
-                            
-                            Training.Lap(phases: [
-                                Phase(breakDuration: 5, workDuration: 60, title: "Section 1"),
-                                Phase(breakDuration: 5, workDuration: 60, title: "Section 1")
-                            ])
-                        ],
-                        breakBetweenLaps: 10)
-    }
-}
-
-extension TrainingsListModel {
-    static var forPreview: TrainingsListModel {
-        TrainingsListModel()
     }
 }
 
@@ -89,6 +64,5 @@ struct TrainingsList_Previews: PreviewProvider {
         NavigationStack {
             TrainingsList(model: .forPreview)
         }
-        
     }
 }

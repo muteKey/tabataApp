@@ -1,8 +1,8 @@
 "training_name" = "Training Name";
-"total_duration" = "Total duration";
-"phase_duration" = "Phase Duration";
+"total_duration" = "Total time";
+"phase_duration" = "Phase time";
 "training_finished" = "Training Finished";
-"break_between_laps" = "Break between laps";
+"break_between_laps" = "Rest";
 "my_trainings" = "My Trainings";
 "save" = "Save";
 "add_new_training" = "Add New Training";
@@ -11,7 +11,7 @@
 "edit_training" = "Edit Training";
 "cancel" = "Cancel";
 "phase_title" = "Phase Title";
-"work_duration" = "Work Duration";
+"work_duration" = "Set Duration";
 "break_duration" = "Break Duration";
 "add_phase" = "Add Phase";
 "add_lap" = "Add Lap";
@@ -23,11 +23,12 @@
 "launch" = "Launch";
 "edit" = "Edit";
 "lap" = "Lap";
+"sets" = "Sets";
 
 "training_title_error" = "Training title should not be empty";
 "training_break_between_laps_error" = "Break between laps duration should be greater than zero";
 "phase_title_error" = "Phase title should not be empty";
-"work_duration_error" = "Work duration should be greater than zero";
+"work_duration_error" = "Set duration should be greater than zero";
 "break_duration_error" = "Break duration should be greater than zero";
 
 "minutes" = "Minutes";

@@ -1,6 +1,5 @@
 import Foundation
 import SwiftUI
-import Utilities
 
 public final class TrainingsListModel: ObservableObject {
     @Published public var trainings: [Training]

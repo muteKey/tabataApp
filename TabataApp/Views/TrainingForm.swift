@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Utilities
 import Models
 
 struct TrainingForm: View {
@@ -84,8 +83,7 @@ struct TrainingForm: View {
                 .listStyle(.insetGrouped)
                 .padding(8)
                 Button {
-                    self.model.addLap(Training.Lap(phases: [Training.Phase.default])
-)
+                    self.model.addLap(Training.Lap(phases: [Training.Phase.default]))
                     hideKeyboard()
 //                    guard let lap = model.training.laps.last else {return}
 //                    proxy.scrollTo(lap.id)

@@ -20,8 +20,8 @@ internal enum L10n {
   internal static let addTraining = L10n.tr("Localizable", "add_training", fallback: "Add Training")
   /// Break
   internal static let `break` = L10n.tr("Localizable", "break", fallback: "Break")
-  /// Break between laps
-  internal static let breakBetweenLaps = L10n.tr("Localizable", "break_between_laps", fallback: "Break between laps")
+  /// Rest
+  internal static let breakBetweenLaps = L10n.tr("Localizable", "break_between_laps", fallback: "Rest")
   /// Break Duration
   internal static let breakDuration = L10n.tr("Localizable", "break_duration", fallback: "Break Duration")
   /// Break duration should be greater than zero
@@ -42,8 +42,8 @@ internal enum L10n {
   internal static let myTrainings = L10n.tr("Localizable", "my_trainings", fallback: "My Trainings")
   /// Number of laps
   internal static let numberOfLaps = L10n.tr("Localizable", "number_of_laps", fallback: "Number of laps")
-  /// Phase Duration
-  internal static let phaseDuration = L10n.tr("Localizable", "phase_duration", fallback: "Phase Duration")
+  /// Phase time
+  internal static let phaseDuration = L10n.tr("Localizable", "phase_duration", fallback: "Phase time")
   /// Phase Title
   internal static let phaseTitle = L10n.tr("Localizable", "phase_title", fallback: "Phase Title")
   /// Phase title should not be empty
@@ -52,14 +52,16 @@ internal enum L10n {
   internal static let save = L10n.tr("Localizable", "save", fallback: "Save")
   /// Seconds
   internal static let seconds = L10n.tr("Localizable", "seconds", fallback: "Seconds")
+  /// Sets
+  internal static let sets = L10n.tr("Localizable", "sets", fallback: "Sets")
   /// Skip
   internal static let skip = L10n.tr("Localizable", "skip", fallback: "Skip")
   /// Stop
   internal static let stop = L10n.tr("Localizable", "stop", fallback: "Stop")
   /// Time Left
   internal static let timeLeft = L10n.tr("Localizable", "time_left", fallback: "Time Left")
-  /// Total duration
-  internal static let totalDuration = L10n.tr("Localizable", "total_duration", fallback: "Total duration")
+  /// Total time
+  internal static let totalDuration = L10n.tr("Localizable", "total_duration", fallback: "Total time")
   /// Total training progress
   internal static let totalTraining = L10n.tr("Localizable", "total_training", fallback: "Total training progress")
   /// Break between laps duration should be greater than zero
@@ -70,10 +72,10 @@ internal enum L10n {
   internal static let trainingName = L10n.tr("Localizable", "training_name", fallback: "Training Name")
   /// Training title should not be empty
   internal static let trainingTitleError = L10n.tr("Localizable", "training_title_error", fallback: "Training title should not be empty")
-  /// Work Duration
-  internal static let workDuration = L10n.tr("Localizable", "work_duration", fallback: "Work Duration")
-  /// Work duration should be greater than zero
-  internal static let workDurationError = L10n.tr("Localizable", "work_duration_error", fallback: "Work duration should be greater than zero")
+  /// Set Duration
+  internal static let workDuration = L10n.tr("Localizable", "work_duration", fallback: "Set Duration")
+  /// Set duration should be greater than zero
+  internal static let workDurationError = L10n.tr("Localizable", "work_duration_error", fallback: "Set duration should be greater than zero")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

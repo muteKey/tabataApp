@@ -50,10 +50,6 @@ struct TrainingDetails: View {
     }
 }
 
-func formatDuration(_ duration: Int) -> String {
-    return Duration.seconds(duration).formatted()
-}
-
 struct TrainingDetails_Previews: PreviewProvider {
     struct Wrapper: View {
 

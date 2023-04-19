@@ -6,11 +6,9 @@
 //
 
 import XCTest
-@testable import Utilities
-@testable import TabataApp
-@testable import Models
 import Combine
 import Foundation
+@testable import Models
 
 extension URL {
     static var testTrainingsLocation: Self {

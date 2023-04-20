@@ -47,7 +47,7 @@ class TrainingManager: NSObject, ObservableObject {
         builder?.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: config)
         
         let startDate = Date()
-//        intervalTimeLine = IntervalTimeline(startDate: startDate, phases: phaseModel.phases)
+        intervalTimeLine = IntervalTimeline(startDate: startDate, phases: phaseModel.phases)
         session?.startActivity(with: startDate)
         builder?.beginCollection(withStart: startDate, completion: { success, error in
             print("beginCollection")

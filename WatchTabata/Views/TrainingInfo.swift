@@ -52,9 +52,9 @@ struct TrainingInfo: View {
 //                                         if let event = trainingManager.intervalTimeLine?.findEvent(for: context.date) {
 //                                             Text(event.phase.title)
 //                                         }
-                                         if let title = trainingManager.intervalTimeLine?.findEvent(for: context.date)?.phase?.title {
-                                             Text(title)
-                                         }
+//                                         if let title = trainingManager.intervalTimeLine?.findEvent(for: context.date)?.phase?.title {
+//                                             Text(title)
+//                                         }
                                          ElapsedTimeView(elapsedTime: trainingManager.builder?.elapsedTime(at: context.date) ?? 0)
                                              .foregroundStyle(.yellow)
                                      }
